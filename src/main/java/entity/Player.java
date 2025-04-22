@@ -11,7 +11,7 @@ import java.io.IOException;
 //character class
 public class Player extends Entity{
 
-    GamePanel gP;
+    // GamePanel gP; Game Panel now stored in Entity
     KeyHandler keyH;
 
     public final int screenX;
@@ -21,7 +21,8 @@ public class Player extends Entity{
     int pixelCounter = 0;
 
     public Player(GamePanel gP, KeyHandler keyH){
-        this.gP = gP;
+        super(gP);
+
         this.keyH = keyH;
 
         screenX = gP.screenWidth/2 - (gP.tileSize/2);
@@ -34,8 +35,8 @@ public class Player extends Entity{
     }
 
     public void setDefaultValues(){
-        worldX = gP.tileSize * 23;
-        worldY = gP.tileSize * 21;
+        worldX = gp.tileSize * 23;
+        worldY = gp.tileSize * 21;
         speed = 4;
         direction = "down";
     }
@@ -72,7 +73,7 @@ public class Player extends Entity{
 
                 moving = true;
                 collisionOn = false;
-                gP.cChecker.checkTile(this);
+                gp.cChecker.checkTile(this);
 
             } else {
                 standCounter++;
@@ -156,6 +157,6 @@ public class Player extends Entity{
                 }
                 break;
         }
-        g2.drawImage(image, screenX, screenY, gP.tileSize, gP.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
     }
 }
