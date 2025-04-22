@@ -1,6 +1,7 @@
 package org.Game;
 
-import entity.*;
+import entity.Player;
+import object.SuperObject;
 import tile.TileManager;
 import javax.swing.JPanel;
 import java.awt.*;
@@ -25,15 +26,15 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight = tileSize * maxWorldRow;
 
     //default fps size
-    int FPS = 60;
+    int FPS = 61;
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
-
     public Player player = new Player(this, keyH);
-    public Entity monster[] = new Entity[20];
+    public SuperObject obj[] = new SuperObject[10];
+
     public GamePanel(){
         //JPanel methods are called
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
