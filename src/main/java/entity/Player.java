@@ -12,7 +12,7 @@ import java.io.IOException;
 //character class
 public class Player extends Entity{
 
-    GamePanel gP;
+
     KeyHandler keyH;
 
     public final int screenX;
@@ -22,7 +22,7 @@ public class Player extends Entity{
     int pixelCounter = 0;
 
     public Player(GamePanel gP, KeyHandler keyH){
-        this.gP = gP;
+        super(gP);
         this.keyH = keyH;
 
         screenX = gP.screenWidth/2 - (gP.tileSize/2);
@@ -37,7 +37,7 @@ public class Player extends Entity{
     public void setDefaultValues(){
         worldX = gP.tileSize * 23;
         worldY = gP.tileSize * 21;
-        speed = 4;
+        speed = 4 * (60.0/gP.FPS);
         direction = "down";
 
         maxLife = 6;
@@ -57,18 +57,7 @@ public class Player extends Entity{
 
     }
 
-    public BufferedImage setup(String imageName){
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage image = null;
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/player/" + imageName +".png"));
-            image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
 
-        } catch(IOException e){
-            e.printStackTrace();
-        }
-        return image;
-    }
     public void update(){
         if(!moving) {
             if (keyH.upPressed || keyH.downPressed ||
@@ -116,7 +105,7 @@ public class Player extends Entity{
             }
 
             spriteCounter++;
-            if(spriteCounter > 12){
+            if(spriteCounter > gP.FPS/5){
                 if(spriteNum == 1){
                     spriteNum = 2;
                 } else if(spriteNum == 2){

@@ -26,16 +26,18 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight = tileSize * maxWorldRow;
 
     //default fps size
-    int FPS = 61;
+    public int FPS = 60;
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
+    public UI ui = new UI(this);
     public Player player = new Player(this, keyH);
     public SuperObject obj[] = new SuperObject[10];
 
-    public GamePanel(){
+    public GamePanel()
+    {
         //JPanel methods are called
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -50,7 +52,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     @Override
     public void run() {
-        double drawInterval = (double) 1000000000 /FPS; //16666666.66
+        double drawInterval = (double) 1000000000 / FPS; //16666666.66
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -76,8 +78,16 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+        // Map
         tileM.draw(g2);
+
+        // PLAYER
         player.draw(g2);
+
+        // UI
+        ui.draw(g2);
+
         g2.dispose();
 
     }

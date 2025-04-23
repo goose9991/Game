@@ -1,15 +1,18 @@
 package entity;
 
 import org.Game.GamePanel;
+import org.Game.UtilityTool;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 //root character class
 public class Entity {
-    GamePanel gp;
+    GamePanel gP;
     public int worldX, worldY;
-    public int speed;
+    public double speed;
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
     public String direction = "down";
     public int actionLockCounter = 0;
@@ -27,8 +30,20 @@ public class Entity {
     public int maxLife;
     public int life;
 
-    public Entity(GamePanel gp)
+    public Entity(GamePanel gP)
     {
-        this.gp = gp;
+        this.gP = gP;
+    }
+    public BufferedImage setup(String imageName){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+        try{
+            image = ImageIO.read(getClass().getResourceAsStream("/player/" + imageName +".png"));
+            image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
+
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+        return image;
     }
 }

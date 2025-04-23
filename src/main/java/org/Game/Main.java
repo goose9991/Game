@@ -8,7 +8,7 @@ public class Main {
         JFrame window = new JFrame();
         //set close option
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //make unresizeable
+        //make unresizable
         window.setResizable(false);
         //set title
         window.setTitle("2D Adventure");
