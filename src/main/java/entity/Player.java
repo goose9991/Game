@@ -40,8 +40,8 @@ public class Player extends Entity{
         speed = 4 * (60.0/gP.FPS);
         direction = "down";
 
-        maxLife = 6;
-        life = maxLife/2;
+        maxLife = 8;
+        life = maxLife;
     }
 
     public void getPlayerImg(){
