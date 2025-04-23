@@ -1,10 +1,12 @@
 package org.Game;
 
+import entity.Entity;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
 import javax.swing.JPanel;
 import java.awt.*;
+import java.util.ArrayList;
 
 //inherit JPanel, an empty container
 //interface Runnable inherited to use run method for thread timer
@@ -22,18 +24,28 @@ public class GamePanel extends JPanel implements Runnable{
 
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
-    public final int worldWidth = tileSize * maxWorldCol;
-    public final int worldHeight = tileSize * maxWorldRow;
+    public final int worldWidth = tileSize * maxWorldCol;  // currently unused
+    public final int worldHeight = tileSize * maxWorldRow; // also unused
 
     //default fps size
     public int FPS = 60;
 
+    // GAME STATE
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
+
     TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
+    AssetSetter aSetter = new AssetSetter(this);
     public CollisionChecker cChecker = new CollisionChecker(this);
     public UI ui = new UI(this);
     public Player player = new Player(this, keyH);
+
+
+    public Entity monsters[] = new Entity[20];
+    ArrayList<Entity> entityList = new ArrayList<>();
     public SuperObject obj[] = new SuperObject[10];
 
     public GamePanel()
@@ -45,7 +57,13 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyH);
         this.setFocusable(true);
     }
+    public void setupGame()
+    {
+        // aSetter.setObject(); -- Readd when wanting to add object to game scene
+        aSetter.setMonster();
 
+        gameState = playState;
+    }
     public void startGameThread(){
         gameThread = new Thread(this);
         gameThread.start();
@@ -72,7 +90,21 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){
-        player.update();
+        if (gameState == playState) // Game Active
+        {
+            player.update();
+        }
+        if (gameState == pauseState) // Game Paused
+        {
+
+        }
+        for (int i = 0; i < monsters.length; i++)
+        {
+            if(monsters[i] != null)
+            {
+                //monsters[i].update();
+            }
+        }
     }
 
     public void paintComponent(Graphics g){

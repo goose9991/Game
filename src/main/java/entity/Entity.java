@@ -38,7 +38,7 @@ public class Entity {
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/player/" + imageName +".png"));
+            image = ImageIO.read(getClass().getResourceAsStream(imageName +".png"));
             image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
 
         } catch(IOException e){

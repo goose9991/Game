@@ -5,6 +5,11 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
+    GamePanel gp;
+    KeyHandler(GamePanel gp)
+    {
+        this.gp = gp;
+    }
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
     @Override
@@ -26,6 +31,10 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_D){
             rightPressed = true;
+        }
+        if(code == KeyEvent.VK_ESCAPE)
+        {
+            gp.gameState =  (gp.gameState == gp.playState) ? gp.pauseState : gp.playState; // Switches between pause and play using Esc Key
         }
     }
 

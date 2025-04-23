@@ -25,6 +25,7 @@ public class Main {
         window.setVisible(true);
 
         //start timer
+        gamePanel.setupGame();
         gamePanel.startGameThread();
     }
 }

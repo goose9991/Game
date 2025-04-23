@@ -39,12 +39,29 @@ public class UI {
         g2.setColor(Color.white);
 
         // TIME
-        playtime += (double)1/gp.FPS;
+        if (gp.gameState == gp.playState)
+        {
+            playtime += (double)1/gp.FPS; // calculates playtime based on fps
+        }
         g2.drawString("Time: " + dFormat.format(playtime), gp.tileSize*11, 65);
 
+        // PLAYER HEALTH
         drawPlayerLife();
-    }
 
+        // PAUSE SCREEN
+        if (gp.gameState == gp.pauseState)
+        {
+            drawPauseScreen();
+        }
+    }
+    public void drawPauseScreen()
+    {
+        String text = "PAUSED";
+        int x = gp.screenWidth/2 - gp.tileSize*2;
+        int y = gp.screenHeight/2;
+
+        g2.drawString(text,x,y);
+    }
     public void drawPlayerLife(){
         int x = gp.tileSize/2;
         int y = gp.tileSize/2;
