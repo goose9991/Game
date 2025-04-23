@@ -16,9 +16,9 @@ public class OBJ_Heart extends SuperObject{
             image2 = ImageIO.read(getClass().getResourceAsStream("/objects/heart_half.png"));
             image3 = ImageIO.read(getClass().getResourceAsStream("/objects/heart_blank.png"));
 
-            uTool.scaleImage(image, gP.tileSize, gP.tileSize);
-            uTool.scaleImage(image2, gP.tileSize, gP.tileSize);
-            uTool.scaleImage(image3, gP.tileSize, gP.tileSize);
+            image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
+            image2 = uTool.scaleImage(image2, gP.tileSize, gP.tileSize);
+            image3 = uTool.scaleImage(image3, gP.tileSize, gP.tileSize);
 
         } catch (IOException e) {
             e.printStackTrace();

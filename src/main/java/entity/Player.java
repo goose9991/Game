@@ -40,7 +40,7 @@ public class Player extends Entity{
         speed = 4 * (60.0/gP.FPS);
         direction = "down";
 
-        maxLife = 6;
+        maxLife = 8;
         life = maxLife;
     }
 
@@ -159,5 +159,7 @@ public class Player extends Entity{
                 break;
         }
         g2.drawImage(image, screenX, screenY, null);
+
     }
+
 }
