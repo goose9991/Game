@@ -21,6 +21,7 @@ public class Player extends Entity{
     boolean moving = false;
     int pixelCounter = 0;
 
+
     public Player(GamePanel gP, KeyHandler keyH){
         super(gP);
         this.keyH = keyH;
@@ -46,14 +47,14 @@ public class Player extends Entity{
 
     public void getPlayerImg(){
 
-        up1 = setup("boy_up_1");
-        up2 = setup("boy_up_2");
-        down1 = setup("boy_down_1");
-        down2 = setup("boy_down_2");
-        left1 = setup("boy_left_1");
-        left2 = setup("boy_left_2");
-        right1 = setup("boy_right_1");
-        right2 = setup("boy_right_2");
+        up1 = setup("/player/boy_up_1");
+        up2 = setup("/player/boy_up_2");
+        down1 = setup("/player/boy_down_1");
+        down2 = setup("/player/boy_down_2");
+        left1 = setup("/player/boy_left_1");
+        left2 = setup("/player/boy_left_2");
+        right1 = setup("/player/boy_right_1");
+        right2 = setup("/player/boy_right_2");
 
     }
 
@@ -74,6 +75,9 @@ public class Player extends Entity{
                 moving = true;
                 collisionOn = false;
                 gP.cChecker.checkTile(this);
+
+                int monsterIndex = gP.cChecker.checkEntity(this, gP.monster);
+                gP.eHandler.checkEvent();
 
             } else {
                 standCounter++;
