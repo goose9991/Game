@@ -1,10 +1,11 @@
 package org.Game;
 
-import entity.Player;
+import entity.*;
 import object.SuperObject;
 import tile.TileManager;
 import javax.swing.JPanel;
 import java.awt.*;
+import java.util.ArrayList;
 
 //inherit JPanel, an empty container
 //interface Runnable inherited to use run method for thread timer
@@ -37,7 +38,6 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     AssetSetter aSetter = new AssetSetter(this);
-    KeyHandler keyH = new KeyHandler();
 
     Sound sound = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
@@ -59,14 +59,15 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-        setupGame();
     }
-    public void setupGame()
-    {
+    public void setupGame() {
         // aSetter.setObject(); -- Readd when wanting to add object to game scene
         aSetter.setMonster();
         playMusic(0);
+
+        gameState = playState;
     }
+
     public void startGameThread(){
         gameThread = new Thread(this);
         gameThread.start();
