@@ -22,20 +22,33 @@ public class GamePanel extends JPanel implements Runnable{
 
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
+    public final int worldWidth = tileSize * maxWorldCol;
+    public final int worldHeight = tileSize * maxWorldRow;
 
     //default fps size
     public int FPS = 60;
 
+    // GAME STATE
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
+
     TileManager tileM = new TileManager(this);
+    KeyHandler keyH = new KeyHandler(this);
+    Thread gameThread;
+    AssetSetter aSetter = new AssetSetter(this);
     KeyHandler keyH = new KeyHandler();
 
     Sound sound = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
-    Thread gameThread;
     public UI ui = new UI(this);
 
     //Entity and Object
     public Player player = new Player(this, keyH);
+
+
+    public Entity monsters[] = new Entity[20];
+    ArrayList<Entity> entityList = new ArrayList<>();
     public SuperObject obj[] = new SuperObject[10];
 
     public GamePanel()
@@ -48,9 +61,10 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
         setupGame();
     }
-
-    public void setupGame(){
-
+    public void setupGame()
+    {
+        // aSetter.setObject(); -- Readd when wanting to add object to game scene
+        aSetter.setMonster();
         playMusic(0);
     }
     public void startGameThread(){
@@ -79,7 +93,26 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){
-        player.update();
+        if (gameState == playState) // Game Active
+        {
+            // PLAYER
+            player.update();
+
+            // MONSTER
+            for (int i = 0; i < monsters.length; i++)
+            {
+                if(monsters[i] != null)
+                {
+                    monsters[i].update();
+                }
+            }
+
+        }
+        if (gameState == pauseState) // Game Paused
+        {
+            // do nothing
+        }
+
     }
 
     public void paintComponent(Graphics g){
@@ -91,6 +124,15 @@ public class GamePanel extends JPanel implements Runnable{
 
         // PLAYER
         player.draw(g2);
+
+        // MONSTERS
+        for (int i = 0; i < monsters.length; i++)
+        {
+            if(monsters[i] != null)
+            {
+                monsters[i].draw(g2);
+            }
+        }
 
         // UI
         ui.draw(g2);
