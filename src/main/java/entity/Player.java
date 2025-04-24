@@ -57,7 +57,6 @@ public class Player extends Entity{
 
     }
 
-
     public void update(){
         if(!moving) {
             if (keyH.upPressed || keyH.downPressed ||
@@ -159,7 +158,6 @@ public class Player extends Entity{
                 break;
         }
         g2.drawImage(image, screenX, screenY, null);
-
     }
 
 }

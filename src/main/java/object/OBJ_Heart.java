@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class OBJ_Heart extends SuperObject{
     GamePanel gP;
+
     public OBJ_Heart(GamePanel gP){
 
         this.gP = gP;
