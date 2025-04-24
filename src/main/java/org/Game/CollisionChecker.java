@@ -62,4 +62,9 @@ public class CollisionChecker {
                 break;
         }
     }
+
+    public int checkEntity(Entity entity, Entity[] target) // TODO: Fill in this function from
+    {
+        return 0;
+    }
 }

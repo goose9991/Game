@@ -92,19 +92,24 @@ public class GamePanel extends JPanel implements Runnable{
     public void update(){
         if (gameState == playState) // Game Active
         {
+            // PLAYER
             player.update();
+
+            // MONSTER
+            for (int i = 0; i < monsters.length; i++)
+            {
+                if(monsters[i] != null)
+                {
+                    monsters[i].update();
+                }
+            }
+
         }
         if (gameState == pauseState) // Game Paused
         {
+            // do nothing
+        }
 
-        }
-        for (int i = 0; i < monsters.length; i++)
-        {
-            if(monsters[i] != null)
-            {
-                //monsters[i].update();
-            }
-        }
     }
 
     public void paintComponent(Graphics g){
@@ -116,6 +121,15 @@ public class GamePanel extends JPanel implements Runnable{
 
         // PLAYER
         player.draw(g2);
+
+        // MONSTERS
+        for (int i = 0; i < monsters.length; i++)
+        {
+            if(monsters[i] != null)
+            {
+                monsters[i].draw(g2);
+            }
+        }
 
         // UI
         ui.draw(g2);
