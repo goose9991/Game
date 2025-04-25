@@ -30,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable{
     public int FPS = 60;
 
     TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     AssetSetter aSetter = new AssetSetter(this);
     Sound sound = new Sound();
 
@@ -44,6 +44,11 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity[] obj = new Entity[10];
     public Entity[] monster = new Entity[10];
     ArrayList<Entity> entityList = new ArrayList<>();
+
+    // Game State
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
 
     public GamePanel()
     {
@@ -59,6 +64,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         aSetter.setMonster();
         playMusic(0);
+        gameState = playState;
     }
     public void startGameThread(){
         gameThread = new Thread(this);
@@ -86,13 +92,20 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){
-        player.update();
+        if(gameState == playState){
+            player.update();
 
-        for(int i = 0; i < monster.length; i++){
-            if(monster[i] != null){
-                monster[i].update();
+            for(int i = 0; i < monster.length; i++){
+                if(monster[i] != null){
+                    monster[i].update();
+                }
             }
         }
+
+        if(gameState == pauseState){
+
+        }
+
     }
 
     public void paintComponent(Graphics g){
