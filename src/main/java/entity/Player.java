@@ -77,6 +77,7 @@ public class Player extends Entity{
                 gP.cChecker.checkTile(this);
 
                 int monsterIndex = gP.cChecker.checkEntity(this, gP.monster);
+                contactMonster(monsterIndex);
                 gP.eHandler.checkEvent();
 
             } else {
@@ -123,8 +124,25 @@ public class Player extends Entity{
                 pixelCounter = 0;
             }
         }
+        if(invincible){
+            invincibleCounter++;
+            if(invincibleCounter > gP.FPS){
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
     }
 
+    public void contactMonster(int i){
+        if(i != 999){
+
+            if(!invincible){
+                life -= 1;
+                invincible = true;
+            }
+
+        }
+    }
     public void draw(Graphics2D g2){
         BufferedImage image = null;
         switch (direction){
@@ -161,7 +179,14 @@ public class Player extends Entity{
                 }
                 break;
         }
+        if(invincible){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+        }
         g2.drawImage(image, screenX, screenY, null);
+
+        //reset alpha
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+
     }
 
 }

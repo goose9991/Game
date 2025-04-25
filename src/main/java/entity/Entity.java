@@ -26,8 +26,11 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
 
+    public boolean invincible = false;
+    public int invincibleCounter;
     public BufferedImage image, image2, image3;
     public boolean collision = false;
+
 
     // CHARACTER STATUS
     public int maxLife;
@@ -45,8 +48,14 @@ public class Entity {
         collisionOn = false;
         gP.cChecker.checkTile(this);
         gP.cChecker.checkEntity(this, gP.monster);
-        gP.cChecker.checkPlayer(this);
+        boolean contactPlayer = gP.cChecker.checkPlayer(this);
 
+        if(this.type == 2 && contactPlayer ){
+            if(!gP.player.invincible){
+                gP.player.life--;
+                gP.player.invincible = true;
+            }
+        }
         if(!collisionOn){
             switch(direction){
                 case "up":

@@ -18,6 +18,6 @@ public class AssetSetter {
 
         gp.monster[1] = new MON_Google(gp);
         gp.monster[1].worldX = gp.tileSize * 25;
-        gp.monster[1].worldY = gp.tileSize * 32;
+        gp.monster[1].worldY = gp.tileSize * 36;
     }
 }
