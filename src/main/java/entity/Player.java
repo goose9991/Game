@@ -133,7 +133,7 @@ public class Player extends Entity{
         // Invincibility timer
         if (invincible) {
             invincibleCounter++;
-            if (invincibleCounter > gP.FPS) {
+            if (invincibleCounter > 120) {
                 invincible = false;
                 invincibleCounter = 0;
             }
