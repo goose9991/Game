@@ -55,7 +55,7 @@ public class MON_Google extends Entity{
                 case 3: direction = "right"; break;
                 case 4: direction = "left"; break;
             }
-
+            System.out.println(direction);
             actionLockCounter = 0;
         }
     }

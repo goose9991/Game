@@ -40,6 +40,7 @@ public class Entity {
 
     public void update(){
 
+        setAction();
 
         collisionOn = false;
         gP.cChecker.checkTile(this);
