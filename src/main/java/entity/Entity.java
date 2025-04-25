@@ -30,8 +30,7 @@ public class Entity {
     public int invincibleCounter;
     public BufferedImage image, image2, image3;
     public boolean collision = false;
-
-
+    
     // CHARACTER STATUS
     public int maxLife;
     public int life;

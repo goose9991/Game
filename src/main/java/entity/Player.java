@@ -88,6 +88,7 @@ public class Player extends Entity{
                     moving = true;
                 }
             } else {
+                //sets direction when not moving
                 standCounter++;
                 if (standCounter == 20) {
                     spriteNum = 1;
