@@ -48,7 +48,7 @@ public class CollisionChecker {
                 tileNum2 = gP.tileM.mapTileNum[entityLeftCol][entityBottomRow];
                 if (gP.tileM.tile[tileNum1].collision ||
                         gP.tileM.tile[tileNum2].collision) {
-                    entity.collisionOn = true;
+                        entity.collisionOn = true;
                 }
                 break;
             case "right":
@@ -57,7 +57,7 @@ public class CollisionChecker {
                 tileNum2 = gP.tileM.mapTileNum[entityRightCol][entityBottomRow];
                 if (gP.tileM.tile[tileNum1].collision ||
                         gP.tileM.tile[tileNum2].collision) {
-                    entity.collisionOn = true;
+                        entity.collisionOn = true;
                 }
                 break;
         }
@@ -79,22 +79,22 @@ public class CollisionChecker {
 
                 switch(entity.direction){
                     case "up":
-                        entity.solidArea.y -= entity.speed;
+                        entity.solidArea.y -= (int)entity.speed;
                         break;
                     case "down":
-                        entity.solidArea.y += entity.speed;
+                        entity.solidArea.y += (int)entity.speed;
                         break;
                     case "left":
-                        entity.solidArea.x -= entity.speed;
+                        entity.solidArea.x -= (int)entity.speed;
                         break;
                     case "right":
-                        entity.solidArea.x += entity.speed;
+                        entity.solidArea.x += (int)entity.speed;
                         break;
                 }
 
                 if(entity.solidArea.intersects(target[i].solidArea)){
                     if(target[i] != entity){
-                        entity.collisionOn = true;
+                        //entity.collisionOn = true;
                         index = i;
                     }
                 }
@@ -123,20 +123,20 @@ public class CollisionChecker {
 
             switch(entity.direction){
                 case "up":
-                    entity.solidArea.y -= entity.speed;
+                    entity.solidArea.y -= (int)entity.speed;
                     break;
                 case "down":
-                    entity.solidArea.y += entity.speed;
+                    entity.solidArea.y += (int)entity.speed;
                     break;
                 case "left":
-                    entity.solidArea.x -= entity.speed;
+                    entity.solidArea.x -= (int) entity.speed;
                     break;
                 case "right":
-                    entity.solidArea.x += entity.speed;
+                    entity.solidArea.x += (int)entity.speed;
                     break;
             }
         if(entity.solidArea.intersects(gP.player.solidArea)){
-            entity.collisionOn = true;
+            //entity.collisionOn = true;
             contactPlayer = true;
         }
         entity.solidArea.x = entity.solidAreaDefaultX;

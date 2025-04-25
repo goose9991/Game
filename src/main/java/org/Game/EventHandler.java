@@ -16,9 +16,9 @@ public class EventHandler {
 
     }
 
-    public void checkEvent(){
-
-    }
+//    public void checkEvent(){
+//
+//    }
 
     public boolean hit(int eventCol, int eventRow, String regDirection){
 
@@ -36,7 +36,7 @@ public class EventHandler {
             }
         }
         gp.player.solidArea.x = gp.player.solidAreaDefaultX;
-        gp.player.solidArea.x = gp.player.solidAreaDefaultX;
+        gp.player.solidArea.y = gp.player.solidAreaDefaultY;
         eventRect.x = eventRectDefaultX;
         eventRect.y = eventRectDefaultY;
 

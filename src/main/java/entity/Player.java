@@ -58,7 +58,9 @@ public class Player extends Entity{
 
     }
 
+    @Override
     public void update() {
+
         if (!moving) {
             if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
                 if (keyH.upPressed) {
@@ -79,7 +81,7 @@ public class Player extends Entity{
                 int monsterIndex = gP.cChecker.checkEntity(this, gP.monster);
                 contactMonster(monsterIndex);
 
-                gP.eHandler.checkEvent();
+//                gP.eHandler.checkEvent();
 
                 // Only set moving to true if there is no collision
                 if (!collisionOn) {
@@ -98,20 +100,20 @@ public class Player extends Entity{
             if (!collisionOn) {
                 switch (direction) {
                     case "up":
-                        worldY -= speed;
+                        worldY -= (int)speed;
                         break;
                     case "down":
-                        worldY += speed;
+                        worldY += (int)speed;
                         break;
                     case "left":
-                        worldX -= speed;
+                        worldX -= (int)speed;
                         break;
                     case "right":
-                        worldX += speed;
+                        worldX += (int)speed;
                         break;
                 }
 
-                pixelCounter += speed; // Only update if actually moved
+                pixelCounter += (int)speed; // Only update if actually moved
             }
 
             // Animate sprite
@@ -141,14 +143,13 @@ public class Player extends Entity{
 
     public void contactMonster(int i){
         if(i != 999){
-
-            if(!invincible){
+            if(!invincible) {
                 life -= 1;
                 invincible = true;
             }
-
         }
     }
+
     public void draw(Graphics2D g2){
         BufferedImage image = null;
         switch (direction){
@@ -192,7 +193,5 @@ public class Player extends Entity{
 
         //reset alpha
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
-
     }
-
 }
