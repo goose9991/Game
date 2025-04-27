@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.Random;
 
 public class MON_Google extends Entity{
+
     public MON_Google(GamePanel gp)
     {
         super(gp);
@@ -19,6 +20,8 @@ public class MON_Google extends Entity{
         solidArea = new Rectangle(1,1,46,46); // Put same values as player for hitbox Rectangle, may need changes
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
+
+        getImage();
     }
 
     public void getImage()

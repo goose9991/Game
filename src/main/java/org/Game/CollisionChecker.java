@@ -48,7 +48,7 @@ public class CollisionChecker {
                 tileNum2 = gP.tileM.mapTileNum[entityLeftCol][entityBottomRow];
                 if (gP.tileM.tile[tileNum1].collision ||
                         gP.tileM.tile[tileNum2].collision) {
-                    entity.collisionOn = true;
+                        entity.collisionOn = true;
                 }
                 break;
             case "right":
@@ -57,14 +57,93 @@ public class CollisionChecker {
                 tileNum2 = gP.tileM.mapTileNum[entityRightCol][entityBottomRow];
                 if (gP.tileM.tile[tileNum1].collision ||
                         gP.tileM.tile[tileNum2].collision) {
-                    entity.collisionOn = true;
+                        entity.collisionOn = true;
                 }
                 break;
         }
     }
 
-    public int checkEntity(Entity entity, Entity[] target) // TODO: Fill in this function from
-    {
-        return 0;
+    //NPC or Monster collison
+    public int checkEntity(Entity entity, Entity[] target){
+        int index = 999;
+
+        for(int i = 0; i < target.length; i++){
+            if(target[i] != null){
+                //get entity solid area position
+                entity.solidArea.x = entity.worldX + entity.solidArea.x;
+                entity.solidArea.y = entity.worldY + entity.solidArea.y;
+
+                //get object solid area position
+                target[i].solidArea.x = target[i].worldX + target[i].solidArea.x;
+                target[i].solidArea.y = target[i].worldY + target[i].solidArea.y;
+
+                switch(entity.direction){
+                    case "up":
+                        entity.solidArea.y -= (int)entity.speed;
+                        break;
+                    case "down":
+                        entity.solidArea.y += (int)entity.speed;
+                        break;
+                    case "left":
+                        entity.solidArea.x -= (int)entity.speed;
+                        break;
+                    case "right":
+                        entity.solidArea.x += (int)entity.speed;
+                        break;
+                }
+
+                if(entity.solidArea.intersects(target[i].solidArea)){
+                    if(target[i] != entity){
+                        //entity.collisionOn = true;
+                        index = i;
+                    }
+                }
+
+                entity.solidArea.x = entity.solidAreaDefaultX;
+                entity.solidArea.y = entity.solidAreaDefaultY;
+                target[i].solidArea.x = target[i].solidAreaDefaultX;
+                target[i].solidArea.y = target[i].solidAreaDefaultY;
+
+            }
+        }
+        return index;
+    }
+
+    public boolean checkPlayer(Entity entity){
+
+            boolean contactPlayer =  false;
+
+            //get entity solid area position
+            entity.solidArea.x = entity.worldX + entity.solidArea.x;
+            entity.solidArea.y = entity.worldY + entity.solidArea.y;
+
+            //get object solid area position
+            gP.player.solidArea.x = gP.player.worldX + gP.player.solidArea.x;
+            gP.player.solidArea.y = gP.player.worldY + gP.player.solidArea.y;
+
+            switch(entity.direction){
+                case "up":
+                    entity.solidArea.y -= (int)entity.speed;
+                    break;
+                case "down":
+                    entity.solidArea.y += (int)entity.speed;
+                    break;
+                case "left":
+                    entity.solidArea.x -= (int) entity.speed;
+                    break;
+                case "right":
+                    entity.solidArea.x += (int)entity.speed;
+                    break;
+            }
+        if(entity.solidArea.intersects(gP.player.solidArea)){
+            //entity.collisionOn = true;
+            contactPlayer = true;
+        }
+        entity.solidArea.x = entity.solidAreaDefaultX;
+        entity.solidArea.y = entity.solidAreaDefaultY;
+        gP.player.solidArea.x = gP.player.solidAreaDefaultX;
+        gP.player.solidArea.y = gP.player.solidAreaDefaultY;
+
+        return contactPlayer;
     }
 }

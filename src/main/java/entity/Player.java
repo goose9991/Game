@@ -21,6 +21,7 @@ public class Player extends Entity{
     boolean moving = false;
     int pixelCounter = 0;
 
+
     public Player(GamePanel gP, KeyHandler keyH){
         super(gP);
         this.keyH = keyH;
@@ -57,10 +58,11 @@ public class Player extends Entity{
 
     }
 
-    public void update(){
-        if(!moving) {
-            if (keyH.upPressed || keyH.downPressed ||
-                    keyH.leftPressed || keyH.rightPressed) {
+    @Override
+    public void update() {
+
+        if (!moving) {
+            if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
                 if (keyH.upPressed) {
                     direction = "up";
                 } else if (keyH.downPressed) {
@@ -71,13 +73,23 @@ public class Player extends Entity{
                     direction = "right";
                 }
 
-                moving = true;
+                // Reset collision flag at the start of movement decision
                 collisionOn = false;
+
+                // Check for collisions
                 gP.cChecker.checkTile(this);
+                int monsterIndex = gP.cChecker.checkEntity(this, gP.monster);
+                contactMonster(monsterIndex);
 
+//                gP.eHandler.checkEvent();
+
+                // Only set moving to true if there is no collision
+                if (!collisionOn) {
+                    moving = true;
+                }
             } else {
+                //sets direction when not moving
                 standCounter++;
-
                 if (standCounter == 20) {
                     spriteNum = 1;
                     standCounter = 0;
@@ -85,38 +97,56 @@ public class Player extends Entity{
             }
         }
 
-        if(moving){
-            if(!collisionOn){
-                switch(direction){
+        if (moving) {
+            if (!collisionOn) {
+                switch (direction) {
                     case "up":
-                        worldY -= speed;
+                        worldY -= (int)speed;
                         break;
                     case "down":
-                        worldY += speed;
+                        worldY += (int)speed;
                         break;
                     case "left":
-                        worldX -= speed;
+                        worldX -= (int)speed;
                         break;
                     case "right":
-                        worldX += speed;
+                        worldX += (int)speed;
                         break;
                 }
+
+                pixelCounter += (int)speed; // Only update if actually moved
             }
 
+            // Animate sprite
             spriteCounter++;
-            if(spriteCounter > gP.FPS/5){
-                if(spriteNum == 1){
-                    spriteNum = 2;
-                } else if(spriteNum == 2){
-                    spriteNum = 1;
-                }
-                    spriteCounter = 0;
-                }
+            if (spriteCounter > gP.FPS / 5) {
+                spriteNum = (spriteNum == 1) ? 2 : 1;
+                spriteCounter = 0;
+            }
 
-                pixelCounter += speed;
-            if(pixelCounter == 48){
+            // End movement after tile-sized movement
+            if (pixelCounter >= 48 || collisionOn) {
                 moving = false;
                 pixelCounter = 0;
+            }
+        }
+
+        // Invincibility timer
+        if (invincible) {
+            invincibleCounter++;
+            if (invincibleCounter > 120) {
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
+    }
+
+
+    public void contactMonster(int i){
+        if(i != 999){
+            if(!invincible) {
+                life -= 1;
+                invincible = true;
             }
         }
     }
@@ -157,7 +187,12 @@ public class Player extends Entity{
                 }
                 break;
         }
+        if(invincible){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+        }
         g2.drawImage(image, screenX, screenY, null);
-    }
 
+        //reset alpha
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+    }
 }
