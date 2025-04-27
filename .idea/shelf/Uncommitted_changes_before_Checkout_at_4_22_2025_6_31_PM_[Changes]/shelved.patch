@@ -1,0 +1,151 @@
+Index: src/main/java/org/Game/GamePanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.Game;\r\n\r\nimport entity.*;\r\nimport tile.TileManager;\r\nimport javax.swing.JPanel;\r\nimport java.awt.*;\r\n\r\n//inherit JPanel, an empty container\r\n//interface Runnable inherited to use run method for thread timer\r\npublic class GamePanel extends JPanel implements Runnable{\r\n\r\n    //bitmap default tile size\r\n    final int originalTileSize = 16;\r\n    final int scale = 3;\r\n\r\n    public final int tileSize = originalTileSize * scale;\r\n    public final int maxScreenCol = 16;\r\n    public final int maxScreenRow = 12;\r\n    public final int screenWidth = tileSize * maxScreenCol;\r\n    public final int screenHeight = tileSize * maxScreenRow;\r\n\r\n    public final int maxWorldCol = 50;\r\n    public final int maxWorldRow = 50;\r\n    public final int worldWidth = tileSize * maxWorldCol;\r\n    public final int worldHeight = tileSize * maxWorldRow;\r\n\r\n    //default fps size\r\n    int FPS = 60;\r\n\r\n    TileManager tileM = new TileManager(this);\r\n    KeyHandler keyH = new KeyHandler();\r\n    Thread gameThread;\r\n    public CollisionChecker cChecker = new CollisionChecker(this);\r\n\r\n    public Player player = new Player(this, keyH);\r\n    public Entity monster[] = new Entity[20];\r\n    public GamePanel(){\r\n        //JPanel methods are called\r\n        this.setPreferredSize(new Dimension(screenWidth, screenHeight));\r\n        this.setBackground(Color.black);\r\n        this.setDoubleBuffered(true);\r\n        this.addKeyListener(keyH);\r\n        this.setFocusable(true);\r\n    }\r\n\r\n    public void startGameThread(){\r\n        gameThread = new Thread(this);\r\n        gameThread.start();\r\n    }\r\n    @Override\r\n    public void run() {\r\n        double drawInterval = (double) 1000000000 /FPS; //16666666.66\r\n        double delta = 0;\r\n        long lastTime = System.nanoTime();\r\n        long currentTime;\r\n\r\n        while(gameThread != null){\r\n            currentTime = System.nanoTime();\r\n            delta += (currentTime - lastTime) / drawInterval;\r\n            lastTime = currentTime;\r\n\r\n            if(delta >= 1){\r\n                update();\r\n                repaint();\r\n                delta--;\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    public void update(){\r\n        player.update();\r\n    }\r\n\r\n    public void paintComponent(Graphics g){\r\n        super.paintComponent(g);\r\n        Graphics2D g2 = (Graphics2D) g;\r\n        tileM.draw(g2);\r\n        player.draw(g2);\r\n        g2.dispose();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/Game/GamePanel.java b/src/main/java/org/Game/GamePanel.java
+--- a/src/main/java/org/Game/GamePanel.java	(revision b7de558307e15b930192a18ccbc95dd8a52f79a2)
++++ b/src/main/java/org/Game/GamePanel.java	(date 1745364689586)
+@@ -34,7 +34,8 @@
+ 
+     public Player player = new Player(this, keyH);
+     public Entity monster[] = new Entity[20];
+-    public GamePanel(){
++    public GamePanel()
++    {
+         //JPanel methods are called
+         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+         this.setBackground(Color.black);
+Index: src/main/java/entity/Entity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package entity;\r\n\r\nimport org.Game.GamePanel;\r\n\r\nimport java.awt.*;\r\nimport java.awt.image.BufferedImage;\r\n\r\n//root character class\r\npublic class Entity {\r\n    GamePanel gp;\r\n    public int worldX, worldY;\r\n    public int speed;\r\n    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;\r\n    public String direction = \"down\";\r\n    public int actionLockCounter = 0;\r\n    public int type; // 0 = player, 1 = npc, 2 = monster\r\n    public String name;\r\n\r\n    public int spriteCounter = 0;\r\n    public int spriteNum = 1;\r\n\r\n    public Rectangle solidArea = new Rectangle(0,0,48,48);\r\n    public int solidAreaDefaultX, solidAreaDefaultY;\r\n    public boolean collisionOn = false;\r\n\r\n    // CHARACTER STATUS\r\n    public int maxLife;\r\n    public int life;\r\n\r\n    public Entity(GamePanel gp)\r\n    {\r\n        this.gp = gp;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/entity/Entity.java b/src/main/java/entity/Entity.java
+--- a/src/main/java/entity/Entity.java	(revision b7de558307e15b930192a18ccbc95dd8a52f79a2)
++++ b/src/main/java/entity/Entity.java	(date 1745364416321)
+@@ -7,7 +7,7 @@
+ 
+ //root character class
+ public class Entity {
+-    GamePanel gp;
++    GamePanel gP;
+     public int worldX, worldY;
+     public int speed;
+     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+@@ -27,8 +27,8 @@
+     public int maxLife;
+     public int life;
+ 
+-    public Entity(GamePanel gp)
++    public Entity(GamePanel gP)
+     {
+-        this.gp = gp;
++        this.gP = gP;
+     }
+ }
+Index: src/main/java/entity/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package entity;\r\n\r\nimport org.Game.GamePanel;\r\nimport org.Game.KeyHandler;\r\n\r\nimport javax.imageio.ImageIO;\r\nimport java.awt.*;\r\nimport java.awt.image.BufferedImage;\r\nimport java.io.IOException;\r\n\r\n//character class\r\npublic class Player extends Entity{\r\n\r\n    // GamePanel gP; Game Panel now stored in Entity\r\n    KeyHandler keyH;\r\n\r\n    public final int screenX;\r\n    public final int screenY;\r\n    public int standCounter = 0;\r\n    boolean moving = false;\r\n    int pixelCounter = 0;\r\n\r\n    public Player(GamePanel gP, KeyHandler keyH){\r\n        super(gP);\r\n\r\n        this.keyH = keyH;\r\n\r\n        screenX = gP.screenWidth/2 - (gP.tileSize/2);\r\n        screenY = gP.screenHeight/2 - (gP.tileSize/2);\r\n\r\n        solidArea = new Rectangle(1,1, 46, 46);\r\n\r\n        setDefaultValues();\r\n        getPlayerImg();\r\n    }\r\n\r\n    public void setDefaultValues(){\r\n        worldX = gp.tileSize * 23;\r\n        worldY = gp.tileSize * 21;\r\n        speed = 4;\r\n        direction = \"down\";\r\n    }\r\n\r\n    public void getPlayerImg(){\r\n        try{\r\n            up1 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_up_1.png\"));\r\n            up2 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_up_2.png\"));\r\n            down1 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_down_1.png\"));\r\n            down2 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_down_2.png\"));\r\n            left1 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_left_1.png\"));\r\n            left2 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_left_2.png\"));\r\n            right1 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_right_1.png\"));\r\n            right2 = ImageIO.read(getClass().getResourceAsStream(\"/player/boy_right_2.png\"));\r\n\r\n        } catch(IOException e){\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void update(){\r\n        if(!moving) {\r\n            if (keyH.upPressed || keyH.downPressed ||\r\n                    keyH.leftPressed || keyH.rightPressed) {\r\n                if (keyH.upPressed) {\r\n                    direction = \"up\";\r\n                } else if (keyH.downPressed) {\r\n                    direction = \"down\";\r\n                } else if (keyH.leftPressed) {\r\n                    direction = \"left\";\r\n                } else if (keyH.rightPressed) {\r\n                    direction = \"right\";\r\n                }\r\n\r\n                moving = true;\r\n                collisionOn = false;\r\n                gp.cChecker.checkTile(this);\r\n\r\n            } else {\r\n                standCounter++;\r\n\r\n                if (standCounter == 20) {\r\n                    spriteNum = 1;\r\n                    standCounter = 0;\r\n                }\r\n            }\r\n        }\r\n\r\n        if(moving){\r\n            if(!collisionOn){\r\n                switch(direction){\r\n                    case \"up\":\r\n                        worldY -= speed;\r\n                        break;\r\n                    case \"down\":\r\n                        worldY += speed;\r\n                        break;\r\n                    case \"left\":\r\n                        worldX -= speed;\r\n                        break;\r\n                    case \"right\":\r\n                        worldX += speed;\r\n                        break;\r\n                }\r\n            }\r\n\r\n            spriteCounter++;\r\n            if(spriteCounter > 12){\r\n                if(spriteNum == 1){\r\n                    spriteNum = 2;\r\n                } else if(spriteNum == 2){\r\n                    spriteNum = 1;\r\n                }\r\n                    spriteCounter = 0;\r\n                }\r\n\r\n                pixelCounter += speed;\r\n            if(pixelCounter == 48){\r\n                moving = false;\r\n                pixelCounter = 0;\r\n            }\r\n        }\r\n    }\r\n\r\n    public void draw(Graphics2D g2){\r\n        BufferedImage image = null;\r\n        switch (direction){\r\n            case \"up\":\r\n                if(spriteNum == 1){\r\n                    image = up1;\r\n                }\r\n                if(spriteNum == 2) {\r\n                    image = up2;\r\n                }\r\n                break;\r\n            case \"down\":\r\n                if(spriteNum == 1) {\r\n                    image = down1;\r\n                }\r\n                if(spriteNum == 2) {\r\n                    image = down2;\r\n                }\r\n                break;\r\n            case \"left\":\r\n                if(spriteNum == 1) {\r\n                    image = left1;\r\n                }\r\n                if(spriteNum == 2) {\r\n                    image = left2;\r\n                }\r\n                break;\r\n            case \"right\":\r\n                if(spriteNum == 1) {\r\n                    image = right1;\r\n                }\r\n                if(spriteNum == 2) {\r\n                    image = right2;\r\n                }\r\n                break;\r\n        }\r\n        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/entity/Player.java b/src/main/java/entity/Player.java
+--- a/src/main/java/entity/Player.java	(revision b7de558307e15b930192a18ccbc95dd8a52f79a2)
++++ b/src/main/java/entity/Player.java	(date 1745364626423)
+@@ -2,6 +2,7 @@
+ 
+ import org.Game.GamePanel;
+ import org.Game.KeyHandler;
++import org.Game.UtilityTool;
+ 
+ import javax.imageio.ImageIO;
+ import java.awt.*;
+@@ -35,28 +36,40 @@
+     }
+ 
+     public void setDefaultValues(){
+-        worldX = gp.tileSize * 23;
+-        worldY = gp.tileSize * 21;
++        worldX = gP.tileSize * 23;
++        worldY = gP.tileSize * 21;
+         speed = 4;
+         direction = "down";
++
++        maxLife = 6;
++        life = maxLife;
+     }
+ 
+     public void getPlayerImg(){
++
++        up1 = setup("boy_up_1");
++        up2 = setup("boy_up_2");
++        down1 = setup("boy_down_1");
++        down2 = setup("boy_down_2");
++        left1 = setup("boy_left_1");
++        left2 = setup("boy_left_2");
++        right1 = setup("boy_right_1");
++        right2 = setup("boy_right_2");
++
++    }
++
++    public BufferedImage setup(String imageName){
++        UtilityTool uTool = new UtilityTool();
++        BufferedImage image = null;
+         try{
+-            up1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_1.png"));
+-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_2.png"));
+-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_1.png"));
+-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_2.png"));
+-            left1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_1.png"));
+-            left2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_2.png"));
+-            right1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_1.png"));
+-            right2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_2.png"));
++            image = ImageIO.read(getClass().getResourceAsStream("/player/" + imageName +".png"));
++            image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
+ 
+         } catch(IOException e){
+             e.printStackTrace();
+         }
++        return image;
+     }
+-
+     public void update(){
+         if(!moving) {
+             if (keyH.upPressed || keyH.downPressed ||
+@@ -73,7 +86,7 @@
+ 
+                 moving = true;
+                 collisionOn = false;
+-                gp.cChecker.checkTile(this);
++                gP.cChecker.checkTile(this);
+ 
+             } else {
+                 standCounter++;
+@@ -157,6 +170,6 @@
+                 }
+                 break;
+         }
+-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
++        g2.drawImage(image, screenX, screenY, null);
+     }
+ }
+Index: src/main/java/org/Game/UI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/Game/UI.java b/src/main/java/org/Game/UI.java
+new file mode 100644
+--- /dev/null	(date 1745364626435)
++++ b/src/main/java/org/Game/UI.java	(date 1745364626435)
+@@ -0,0 +1,4 @@
++package org.Game;
++
++public class UI {
++}

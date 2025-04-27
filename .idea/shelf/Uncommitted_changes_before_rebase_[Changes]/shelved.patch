@@ -1,0 +1,39 @@
+Index: src/main/java/monster/MON_Google.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package monster;\r\n\r\nimport entity.Entity;\r\nimport org.Game.GamePanel;\r\nimport java.awt.*;\r\nimport java.util.Random;\r\n\r\npublic class MON_Google extends Entity{\r\n    public MON_Google(GamePanel gp)\r\n    {\r\n        super(gp);\r\n\r\n        name = \"Google\";\r\n        type = 2; // sets type to monster\r\n        speed = 1;\r\n        maxLife = 4;\r\n        life = maxLife;\r\n\r\n        solidArea = new Rectangle(1,1,46,46); // Put same values as player for hitbox Rectangle, may need changes\r\n        solidAreaDefaultX = solidArea.x;\r\n        solidAreaDefaultY = solidArea.y;\r\n    }\r\n\r\n    public void getImage()\r\n    {\r\n        up1 = setup(\"/monster/Google\"); // sets the image to be Google at all times.\r\n        up2 = up1;\r\n\r\n        down1 = setup(\"/monster/Google\");\r\n        down2 = down1;\r\n\r\n        right1 = setup(\"/monster/Google\");\r\n        right2 = right1;\r\n\r\n        left1 = setup(\"/monster/Google\");\r\n        left2 = left1;\r\n    }\r\n\r\n    public void setAction()\r\n    {\r\n        actionLockCounter++;\r\n\r\n        if(actionLockCounter == 120)\r\n        {\r\n            Random random = new Random();\r\n            int i = random.nextInt(4) + 1; // grabs random number between 1-4\r\n\r\n            switch(i)\r\n            {\r\n                case 1: direction = \"up\"; break;\r\n                case 2: direction = \"down\"; break;\r\n                case 3: direction = \"right\"; break;\r\n                case 4: direction = \"left\"; break;\r\n            }\r\n\r\n            actionLockCounter = 0;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/monster/MON_Google.java b/src/main/java/monster/MON_Google.java
+--- a/src/main/java/monster/MON_Google.java	(revision 8babf6e2b0bfd14a7881b164732d9237488158ab)
++++ b/src/main/java/monster/MON_Google.java	(date 1745462085147)
+@@ -23,17 +23,17 @@
+ 
+     public void getImage()
+     {
+-        up1 = setup("/monster/Google"); // sets the image to be Google at all times.
+-        up2 = up1;
+-
+-        down1 = setup("/monster/Google");
+-        down2 = down1;
+-
+-        right1 = setup("/monster/Google");
+-        right2 = right1;
+-
+-        left1 = setup("/monster/Google");
+-        left2 = left1;
++//        up1 = setup("/monster/Google"); // sets the image to be Google at all times.
++//        up2 = up1;
++//
++//        down1 = setup("/monster/Google");
++//        down2 = down1;
++//
++//        right1 = setup("/monster/Google");
++//        right2 = right1;
++//
++//        left1 = setup("/monster/Google");
++//        left2 = left1;
+     }
+ 
+     public void setAction()

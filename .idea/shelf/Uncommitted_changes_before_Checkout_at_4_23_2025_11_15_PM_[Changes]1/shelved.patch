@@ -1,0 +1,65 @@
+Index: src/main/java/monster/MON_Google.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package monster;\r\n\r\nimport entity.Entity;\r\nimport org.Game.GamePanel;\r\nimport java.awt.*;\r\nimport java.util.Random;\r\n\r\npublic class MON_Google extends Entity{\r\n    public MON_Google(GamePanel gp)\r\n    {\r\n        super(gp);\r\n\r\n        name = \"Google\";\r\n        type = 2; // sets type to monster\r\n        speed = 1;\r\n        maxLife = 4;\r\n        life = maxLife;\r\n\r\n        solidArea = new Rectangle(1,1,46,46); // Put same values as player for hitbox Rectangle, may need changes\r\n        solidAreaDefaultX = solidArea.x;\r\n        solidAreaDefaultY = solidArea.y;\r\n    }\r\n\r\n    public void getImage()\r\n    {\r\n        up1 = setup(\"/monster/Google\"); // sets the image to be Google at all times.\r\n        up2 = up1;\r\n\r\n        down1 = setup(\"/monster/Google\");\r\n        down2 = down1;\r\n\r\n        right1 = setup(\"/monster/Google\");\r\n        right2 = right1;\r\n\r\n        left1 = setup(\"/monster/Google\");\r\n        left2 = left1;\r\n    }\r\n\r\n    public void setAction()\r\n    {\r\n        actionLockCounter++;\r\n\r\n        if(actionLockCounter == 120)\r\n        {\r\n            Random random = new Random();\r\n            int i = random.nextInt(4) + 1; // grabs random number between 1-4\r\n\r\n            switch(i)\r\n            {\r\n                case 1: direction = \"up\"; break;\r\n                case 2: direction = \"down\"; break;\r\n                case 3: direction = \"right\"; break;\r\n                case 4: direction = \"left\"; break;\r\n            }\r\n\r\n            actionLockCounter = 0;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/monster/MON_Google.java b/src/main/java/monster/MON_Google.java
+--- a/src/main/java/monster/MON_Google.java	(revision 8babf6e2b0bfd14a7881b164732d9237488158ab)
++++ b/src/main/java/monster/MON_Google.java	(date 1745468126763)
+@@ -23,17 +23,17 @@
+ 
+     public void getImage()
+     {
+-        up1 = setup("/monster/Google"); // sets the image to be Google at all times.
+-        up2 = up1;
+-
+-        down1 = setup("/monster/Google");
+-        down2 = down1;
+-
+-        right1 = setup("/monster/Google");
+-        right2 = right1;
+-
+-        left1 = setup("/monster/Google");
+-        left2 = left1;
++//        up1 = setup("/monster/Google"); // sets the image to be Google at all times.
++//        up2 = up1;
++//
++//        down1 = setup("/monster/Google");
++//        down2 = down1;
++//
++//        right1 = setup("/monster/Google");
++//        right2 = right1;
++//
++//        left1 = setup("/monster/Google");
++//        left2 = left1;
+     }
+ 
+     public void setAction()
+Index: src/main/java/org/Game/GamePanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.Game;\r\n\r\nimport entity.Entity;\r\nimport entity.Player;\r\nimport object.SuperObject;\r\nimport tile.TileManager;\r\nimport javax.swing.JPanel;\r\nimport java.awt.*;\r\nimport java.util.ArrayList;\r\n\r\n//inherit JPanel, an empty container\r\n//interface Runnable inherited to use run method for thread timer\r\npublic class GamePanel extends JPanel implements Runnable{\r\n\r\n    //bitmap default tile size\r\n    final int originalTileSize = 16;\r\n    final int scale = 3;\r\n\r\n    public final int tileSize = originalTileSize * scale;\r\n    public final int maxScreenCol = 16;\r\n    public final int maxScreenRow = 12;\r\n    public final int screenWidth = tileSize * maxScreenCol;\r\n    public final int screenHeight = tileSize * maxScreenRow;\r\n\r\n    public final int maxWorldCol = 50;\r\n    public final int maxWorldRow = 50;\r\n    public final int worldWidth = tileSize * maxWorldCol;  // currently unused\r\n    public final int worldHeight = tileSize * maxWorldRow; // also unused\r\n\r\n    //default fps size\r\n    public int FPS = 60;\r\n\r\n    // GAME STATE\r\n    public int gameState;\r\n    public final int playState = 1;\r\n    public final int pauseState = 2;\r\n\r\n    TileManager tileM = new TileManager(this);\r\n    KeyHandler keyH = new KeyHandler(this);\r\n    Thread gameThread;\r\n    AssetSetter aSetter = new AssetSetter(this);\r\n    public CollisionChecker cChecker = new CollisionChecker(this);\r\n    public UI ui = new UI(this);\r\n    public Player player = new Player(this, keyH);\r\n\r\n\r\n    public Entity monsters[] = new Entity[20];\r\n    ArrayList<Entity> entityList = new ArrayList<>();\r\n    public SuperObject obj[] = new SuperObject[10];\r\n\r\n    public GamePanel()\r\n    {\r\n        //JPanel methods are called\r\n        this.setPreferredSize(new Dimension(screenWidth, screenHeight));\r\n        this.setBackground(Color.black);\r\n        this.setDoubleBuffered(true);\r\n        this.addKeyListener(keyH);\r\n        this.setFocusable(true);\r\n    }\r\n    public void setupGame()\r\n    {\r\n        // aSetter.setObject(); -- Readd when wanting to add object to game scene\r\n        aSetter.setMonster();\r\n\r\n        gameState = playState;\r\n    }\r\n    public void startGameThread(){\r\n        gameThread = new Thread(this);\r\n        gameThread.start();\r\n    }\r\n    @Override\r\n    public void run() {\r\n        double drawInterval = (double) 1000000000 / FPS; //16666666.66\r\n        double delta = 0;\r\n        long lastTime = System.nanoTime();\r\n        long currentTime;\r\n\r\n        while(gameThread != null){\r\n            currentTime = System.nanoTime();\r\n            delta += (currentTime - lastTime) / drawInterval;\r\n            lastTime = currentTime;\r\n\r\n            if(delta >= 1){\r\n                update();\r\n                repaint();\r\n                delta--;\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    public void update(){\r\n        if (gameState == playState) // Game Active\r\n        {\r\n            // PLAYER\r\n            player.update();\r\n\r\n            // MONSTER\r\n            for (int i = 0; i < monsters.length; i++)\r\n            {\r\n                if(monsters[i] != null)\r\n                {\r\n                    monsters[i].update();\r\n                }\r\n            }\r\n\r\n        }\r\n        if (gameState == pauseState) // Game Paused\r\n        {\r\n            // do nothing\r\n        }\r\n\r\n    }\r\n\r\n    public void paintComponent(Graphics g){\r\n        super.paintComponent(g);\r\n        Graphics2D g2 = (Graphics2D) g;\r\n\r\n        // Map\r\n        tileM.draw(g2);\r\n\r\n        // PLAYER\r\n        player.draw(g2);\r\n\r\n        // MONSTERS\r\n        for (int i = 0; i < monsters.length; i++)\r\n        {\r\n            if(monsters[i] != null)\r\n            {\r\n                monsters[i].draw(g2);\r\n            }\r\n        }\r\n\r\n        // UI\r\n        ui.draw(g2);\r\n\r\n        g2.dispose();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/Game/GamePanel.java b/src/main/java/org/Game/GamePanel.java
+--- a/src/main/java/org/Game/GamePanel.java	(revision 8babf6e2b0bfd14a7881b164732d9237488158ab)
++++ b/src/main/java/org/Game/GamePanel.java	(date 1745468126769)
+@@ -57,13 +57,13 @@
+         this.addKeyListener(keyH);
+         this.setFocusable(true);
+     }
+-    public void setupGame()
+-    {
++    public void setupGame() {
+         // aSetter.setObject(); -- Readd when wanting to add object to game scene
+         aSetter.setMonster();
+ 
+         gameState = playState;
+     }
++
+     public void startGameThread(){
+         gameThread = new Thread(this);
+         gameThread.start();
