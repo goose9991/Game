@@ -11,7 +11,7 @@ public class Sound {
 
     public Sound(){
         soundURL[0] = getClass().getResource("/sound/game_music.wav");
-
+        soundURL[1] = getClass().getResource("/sound/laser_sword.wav");
     }
 
     public void setFile(int i){
