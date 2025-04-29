@@ -40,6 +40,11 @@ public class KeyHandler implements KeyListener {
                 gp.sound.play();
             }
         }
+        if(code == KeyEvent.VK_M){
+
+            Sound.mute = !Sound.mute;
+            gp.sound.applyMute();
+        }
 
     }
 
