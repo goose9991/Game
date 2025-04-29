@@ -17,15 +17,16 @@ public class Main {
         GamePanel gamePanel = new GamePanel();
         //pass it to JFrame window
         window.add(gamePanel);
-        //run window JFrame
+        //set window JFrame size based on JPanel
         window.pack();
         //sets window at center of screen
         window.setLocationRelativeTo(null);
         //makes window visible
         window.setVisible(true);
 
-        //start timer
+        //start placement of entities
         gamePanel.setupGame();
+        //start Thread Engine and timer
         gamePanel.startGameThread();
     }
 }

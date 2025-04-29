@@ -1,0 +1,122 @@
+Index: src/main/java/entity/Entity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package entity;\r\n\r\nimport org.Game.GamePanel;\r\nimport org.Game.UtilityTool;\r\n\r\nimport javax.imageio.ImageIO;\r\nimport java.awt.*;\r\nimport java.awt.image.BufferedImage;\r\nimport java.io.IOException;\r\n\r\n//root character class\r\npublic class Entity {\r\n    GamePanel gP;\r\n    public int worldX, worldY;\r\n    public double speed;\r\n    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;\r\n    public String direction = \"down\";\r\n    public int actionLockCounter = 0;\r\n    public int type; // 0 = player, 1 = npc, 2 = monster\r\n    public String name;\r\n\r\n    public int spriteCounter = 0;\r\n    public int spriteNum = 1;\r\n\r\n    public Rectangle solidArea = new Rectangle(0,0,48,48);\r\n    public int solidAreaDefaultX, solidAreaDefaultY;\r\n    public boolean collisionOn = false;\r\n\r\n    // CHARACTER STATUS\r\n    public int maxLife;\r\n    public int life;\r\n\r\n    public Entity(GamePanel gP)\r\n    {\r\n        this.gP = gP;\r\n    }\r\n    public BufferedImage setup(String imageName){\r\n        UtilityTool uTool = new UtilityTool();\r\n        BufferedImage image = null;\r\n        try{\r\n            image = ImageIO.read(getClass().getResourceAsStream(\"/player/\" + imageName +\".png\"));\r\n            image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);\r\n\r\n        } catch(IOException e){\r\n            e.printStackTrace();\r\n        }\r\n        return image;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/entity/Entity.java b/src/main/java/entity/Entity.java
+--- a/src/main/java/entity/Entity.java	(revision 174b9c202b01c7b1dec94231eecbb52b0e10be78)
++++ b/src/main/java/entity/Entity.java	(date 1745531734961)
+@@ -11,6 +11,7 @@
+ //root character class
+ public class Entity {
+     GamePanel gP;
++    Graphics2D g2;
+     public int worldX, worldY;
+     public double speed;
+     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+@@ -22,7 +23,7 @@
+     public int spriteCounter = 0;
+     public int spriteNum = 1;
+ 
+-    public Rectangle solidArea = new Rectangle(0,0,48,48);
++    public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
+     public int solidAreaDefaultX, solidAreaDefaultY;
+     public boolean collisionOn = false;
+ 
+@@ -30,20 +31,86 @@
+     public int maxLife;
+     public int life;
+ 
+-    public Entity(GamePanel gP)
+-    {
++    public Entity(GamePanel gP) {
+         this.gP = gP;
+     }
+-    public BufferedImage setup(String imageName){
++
++    public BufferedImage setup(String imageName) {
+         UtilityTool uTool = new UtilityTool();
+         BufferedImage image = null;
+-        try{
+-            image = ImageIO.read(getClass().getResourceAsStream("/player/" + imageName +".png"));
++        try {
++            image = ImageIO.read(getClass().getResourceAsStream(imageName + ".png"));
+             image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
+ 
+-        } catch(IOException e){
++        } catch (IOException e) {
+             e.printStackTrace();
+         }
+         return image;
+     }
+-}
++    public void setAction(){}
++    public void update()
++    {
++        setAction();
++        collisionOn = false;
++        gP.cChecker.checkTile(this);
++
++        if (collisionOn == false)
++        {
++            // Allows Player/Entity to move if collision is off
++            switch(direction)
++            {
++                case "up": worldY -= speed; break;
++                case "down": worldY += speed; break;
++                case "right": worldX -= speed; break;
++                case "left": worldX += speed; break;
++            }
++        }
++    }
++    public void draw(Graphics2D g2) {
++        BufferedImage image = null;
++
++        int screenX = worldX - gP.player.worldX + gP.player.screenX;
++        int screenY = worldY - gP.player.worldY + gP.player.screenY;
++
++        if (worldX + gP.tileSize > gP.player.worldX - gP.player.screenX &&
++                worldX - gP.tileSize < gP.player.worldX + gP.player.screenX &&
++                worldY + gP.tileSize > gP.player.worldY - gP.player.screenY &&
++                worldY - gP.tileSize < gP.player.worldY + gP.player.screenY) {
++            switch (direction) {
++                case "up":
++                    if (spriteNum == 1) {
++                        image = up1;
++                    }
++                    if (spriteNum == 2) {
++                        image = up2;
++                    }
++                    break;
++                case "down":
++                    if (spriteNum == 1) {
++                        image = down1;
++                    }
++                    if (spriteNum == 2) {
++                        image = down2;
++                    }
++                    break;
++                case "left":
++                    if (spriteNum == 1) {
++                        image = left1;
++                    }
++                    if (spriteNum == 2) {
++                        image = left2;
++                    }
++                    break;
++                case "right":
++                    if (spriteNum == 1) {
++                        image = right1;
++                    }
++                    if (spriteNum == 2) {
++                        image = right2;
++                    }
++                    break;
++            }
++            g2.drawImage(image, screenX, screenY, gP.tileSize, gP.tileSize, null);
++        }
++    }
++}
+\ No newline at end of file

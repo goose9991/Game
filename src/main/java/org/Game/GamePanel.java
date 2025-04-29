@@ -55,9 +55,12 @@ public class GamePanel extends JPanel implements Runnable{
         //JPanel methods are called
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
+        //allow painting
         this.setDoubleBuffered(true);
-        this.addKeyListener(keyH);
+        //allow key input response
         this.setFocusable(true);
+        //responds to key input response
+        this.addKeyListener(keyH);
     }
 
     public void setupGame(){
@@ -72,23 +75,29 @@ public class GamePanel extends JPanel implements Runnable{
     }
     @Override
     public void run() {
-        double drawInterval = (double) 1000000000 / FPS; //16666666.66
+        // 1 second in nanoseconds divided by frames per second(frame intervals)
+        double drawInterval = (double) 1000000000 / FPS;
+        //tracks how many frame intervals have passed.
         double delta = 0;
+        //stores the timestamp of the previous loop cycle
         long lastTime = System.nanoTime();
+        //will hold the current timestamp.
         long currentTime;
 
         while(gameThread != null){
+            //capture current time
             currentTime = System.nanoTime();
+            //delta is added by (time since last loop)/frame intervals
             delta += (currentTime - lastTime) / drawInterval;
             lastTime = currentTime;
 
+            //as long as one there's one delta count:
             if(delta >= 1){
-                update();
-                repaint();
-                delta--;
+                update(); //logic updater for movement/collision
+                repaint(); //redraws screen
+                delta--; //avoid accumulation for accuracy
             }
         }
-
     }
 
     public void update(){
@@ -109,6 +118,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void paintComponent(Graphics g){
+        //pass Graphics class to JPanel
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
@@ -129,7 +139,7 @@ public class GamePanel extends JPanel implements Runnable{
                 entityList.add(monster[i]);
             }
         }
-
+        //sort all entities based on sizes
         Collections.sort(entityList, new Comparator<Entity>() {
             @Override
             public int compare(Entity e1, Entity e2) {

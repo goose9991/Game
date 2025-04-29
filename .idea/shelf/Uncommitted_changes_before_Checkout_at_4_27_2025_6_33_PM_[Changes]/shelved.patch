@@ -1,0 +1,52 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"92f1cb07-467d-43cc-af28-325dd958c255\" name=\"Changes\" comment=\"Committed Game States to Main! (Press Esc to Pause)\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"XavierBranch\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;XavierAmico&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/goose9991/Game.git&quot;,\r\n    &quot;accountId&quot;: &quot;2b1efcaf-995e-46c2-862d-ad143ee68e23&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2w6K9TzwNwtpF1qVoyHaKU2scOK\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Main.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"Gus\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\cazim\\IdeaProjects\\Game\\src\\main\\java\" />\r\n      <recent name=\"C:\\Users\\cazim\\IdeaProjects\\Game\\res\\monster\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"92f1cb07-467d-43cc-af28-325dd958c255\" name=\"Changes\" comment=\"\" />\r\n      <created>1745356431586</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1745356431586</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"61 better than 60\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745356700413</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745356700413</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Added google monster\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745363824347</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745363824347</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Committed to Fortnite\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745369736118</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745369736118</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Committed Game States to Main! (Press Esc to Pause)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745468328629</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745468328629</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"OPEN_GENERIC_TABS\">\r\n      <map>\r\n        <entry key=\"ae82e3d5-b536-437c-9448-b0016ba81061\" value=\"TOOL_WINDOW\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n        <entry key=\"ae82e3d5-b536-437c-9448-b0016ba81061\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"61 better than 60\" />\r\n    <MESSAGE value=\"Added google monster\" />\r\n    <MESSAGE value=\"Committed to Fortnite\" />\r\n    <MESSAGE value=\"Committed Game States to Main! (Press Esc to Pause)\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Committed Game States to Main! (Press Esc to Pause)\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b04995710f550ace6c6ebdf50f381fd2ea8e53d9)
++++ b/.idea/workspace.xml	(date 1745796182875)
+@@ -4,7 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Committed Game States to Main! (Press Esc to Pause)" />
++    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="updated music again and monster img" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -56,6 +56,7 @@
+ }]]></component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\gusga\OneDrive\Documents\java_exp\Game\res\sound" />
+       <recent name="C:\Users\cazim\IdeaProjects\Game\src\main\java" />
+       <recent name="C:\Users\cazim\IdeaProjects\Game\res\monster" />
+     </key>
+@@ -100,7 +101,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1745468328629</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="updated music again and monster img">
++      <option name="closed" value="true" />
++      <created>1745796048249</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1745796048249</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -129,6 +138,7 @@
+     <MESSAGE value="Added google monster" />
+     <MESSAGE value="Committed to Fortnite" />
+     <MESSAGE value="Committed Game States to Main! (Press Esc to Pause)" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Committed Game States to Main! (Press Esc to Pause)" />
++    <MESSAGE value="updated music again and monster img" />
++    <option name="LAST_COMMIT_MESSAGE" value="updated music again and monster img" />
+   </component>
+ </project>
+\ No newline at end of file
