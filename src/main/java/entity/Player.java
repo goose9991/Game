@@ -54,7 +54,7 @@ public class Player extends Entity{
         left1 = setup("/player/joselito_left1");
         left2 = setup("/player/joselito_left2");
         right1 = setup("/player/joselito_right1");
-        right2 = setup("/player/joselito_righ2");
+        right2 = setup("/player/joselito_right2");
 
     }
     public void getPlayerAttackImage()
