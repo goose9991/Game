@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldRow = 50;
 
     //default fps size
-    public int FPS = 60;
+    public int FPS = 120;
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler(this);
