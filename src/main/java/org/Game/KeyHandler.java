@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     GamePanel gp;
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed;
 
     public KeyHandler(GamePanel gp){
         this.gp = gp;
@@ -45,6 +45,10 @@ public class KeyHandler implements KeyListener {
             Sound.mute = !Sound.mute;
             gp.sound.applyMute();
         }
+        if(code == KeyEvent.VK_SPACE)
+        {
+            spacePressed = true;
+        }
 
     }
 
@@ -62,6 +66,10 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_D){
             rightPressed = false;
+        }
+        if(code == KeyEvent.VK_SPACE)
+        {
+            spacePressed = false;
         }
     }
 }

@@ -10,31 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Committed Game States to Main! (Press Esc to Pause)">
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_down1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_left1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_right1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_up1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_up2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_down1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_left1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_right1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_up1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_up2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_down_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_down_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_left_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_left_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_right_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_right_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_up_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_up_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/KeyHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="XavierBranch" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,7 +60,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Xavier",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/gusga/OneDrive/Documents/java_exp/Game/res/player",
     "project.structure.last.edited": "Artifacts",
