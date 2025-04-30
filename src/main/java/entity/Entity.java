@@ -10,7 +10,7 @@ import java.io.IOException;
 
 //root character class
 public class Entity {
-    GamePanel gP;
+    public GamePanel gP;
     public int worldX, worldY;
     public double speed;
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
@@ -85,12 +85,12 @@ public class Entity {
         }
     }
     public void setAction(){}
-    public BufferedImage setup(String imageName){
+    public BufferedImage setup(String imageName, int width, int height){
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
         try{
             image = ImageIO.read(getClass().getResourceAsStream(imageName +".png"));
-            image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
+            image = uTool.scaleImage(image, width, height);
 
         } catch(IOException e){
             e.printStackTrace();
