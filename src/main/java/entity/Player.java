@@ -16,8 +16,8 @@ public class Player extends Entity{
     public int standCounter = 0;
     boolean hit = false;
     boolean attacking = false;
-    public int timeSinceAttack = 100;
-    public int attackCooldown = 100; // Determines number of frames before a new attack can happen
+    public int timeSinceAttack = 120;
+    public int attackCooldown = 60; // Determines number of frames before a new attack can happen
     boolean moving = false;
     int pixelCounter = 0;
 
@@ -200,6 +200,7 @@ public class Player extends Entity{
             // Check Monster collision with attackArea, worldX, and worldY
             int monsterIndex = gP.cChecker.checkEntity(this, gP.monster);
             if (monsterIndex != 999 && !hit) {
+                gP.playSE(1);
                 gP.monster[monsterIndex].damage(1);
                 System.out.println("Hit!");
                 hit = true;
