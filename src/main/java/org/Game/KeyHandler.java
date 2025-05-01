@@ -34,11 +34,10 @@ public class KeyHandler implements KeyListener, GameVariables {
         }
         if(code == KeyEvent.VK_ESCAPE){
             gp.gameState =  (gp.gameState == playState) ? pauseState : playState; // Switches between pause and play using Esc Key
-            if(gp.gameState == pauseState ){
-                gp.sound.stop();
-            } else {
-                gp.sound.play();
-            }
+
+            Sound.mute = (gp.gameState == pauseState); // mute only when paused
+            gp.sound.applyMute();
+
         }
         if(code == KeyEvent.VK_M){
             Sound.mute = !Sound.mute;

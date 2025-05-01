@@ -55,23 +55,31 @@ public class Sound {
         }
     }
 
-    public void setVolume(float volume) {
-        if (volumeControl != null) {
-            float min = volumeControl.getMinimum();
-            float max = volumeControl.getMaximum();
-            float dB = min + (max - min) * volume; // volume is expected between 0.0 and 1.0
-            volumeControl.setValue(dB);
-        }
-    }
+//    public void setVolume(float volume) {
+//        if (volumeControl != null) {
+//            float min = volumeControl.getMinimum();
+//            float max = volumeControl.getMaximum();
+//            float dB = min + (max - min) * volume; // volume is expected between 0.0 and 1.0
+//            volumeControl.setValue(dB);
+//        }
+//    }
 
-    public void applyMute(){
-        if(volumeControl != null){
-            if(mute){
-                volumeControl.setValue(volumeControl.getMinimum());
-            } else{
-                setVolume(.8f);
+    public void applyMute() {
+        for (Clip c : activeClips) {
+            if (c.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
+                FloatControl vc = (FloatControl) c.getControl(FloatControl.Type.MASTER_GAIN);
+                if (mute) {
+                    vc.setValue(vc.getMinimum());
+                } else {
+                    float min = vc.getMinimum();
+                    float max = vc.getMaximum();
+                    float volume = 0.8f; // 80% volume
+                    float dB = min + (max - min) * volume;
+                    vc.setValue(dB);
+                }
             }
         }
     }
+
 
 }
