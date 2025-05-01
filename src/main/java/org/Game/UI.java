@@ -49,6 +49,9 @@ public class UI implements GameVariables{
         // PLAYER HEALTH
         drawPlayerLife();
 
+        if(Sound.mute && gp.gameState == 1){
+            drawMuteSymbol();
+        }
         // PAUSE SCREEN
         if (gp.gameState == pauseState)
         {
@@ -60,6 +63,15 @@ public class UI implements GameVariables{
             drawGameOverScreen();
         }
     }
+
+    public void drawMuteSymbol(){
+        String text = "MUTE";
+        int x = screenWidth/2 + tileSize*5;
+        int y = screenHeight/2 + tileSize*5;
+
+        g2.drawString(text,x,y);
+    }
+
     public void drawGameOverScreen()
     {
         String text = "Game Over..";

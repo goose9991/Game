@@ -55,15 +55,6 @@ public class Sound {
         }
     }
 
-//    public void setVolume(float volume) {
-//        if (volumeControl != null) {
-//            float min = volumeControl.getMinimum();
-//            float max = volumeControl.getMaximum();
-//            float dB = min + (max - min) * volume; // volume is expected between 0.0 and 1.0
-//            volumeControl.setValue(dB);
-//        }
-//    }
-
     public void applyMute() {
         for (Clip c : activeClips) {
             if (c.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
