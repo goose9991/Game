@@ -36,7 +36,7 @@ public class Player extends Entity{
     public void setDefaultValues(){
         worldX = tileSize * 23;
         worldY = tileSize * 21;
-        speed = 4 * (60.0/FPS);
+        speed = 4 * (60.0/FPS) * (tileSize/48.0);
         direction = "down";
         type = 0;
         attackArea = new Rectangle(tileSize,tileSize);
@@ -76,7 +76,12 @@ public class Player extends Entity{
             }
 
             if (!moving){
-                if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed || keyH.spacePressed) {
+                if(keyH.spacePressed)
+                {
+                    attacking = timeSinceAttack >= attackCooldown;
+                }
+
+                if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed ){
                     if (keyH.upPressed) {
                         direction = "up";
                     } else if (keyH.downPressed) {
@@ -85,9 +90,6 @@ public class Player extends Entity{
                         direction = "left";
                     } else if (keyH.rightPressed) {
                         direction = "right";
-                    }
-                    else if (keyH.spacePressed) {
-                        attacking = timeSinceAttack >= attackCooldown;
                     }
 
 
@@ -115,7 +117,7 @@ public class Player extends Entity{
                 }
             }
 
-            if (moving && !collisionOn && !attacking)
+            if (moving && !collisionOn && !attacking && (!keyH.spacePressed || pixelCounter != 0))
             {
                     switch (direction) {
                         case "up":
@@ -149,7 +151,7 @@ public class Player extends Entity{
                 }
 
                 // End movement after tile-sized movement
-                if (pixelCounter >= 48 || collisionOn) {
+                if (pixelCounter >= tileSize || collisionOn) {
                     moving = false;
                     pixelCounter = 0;
                 }
@@ -223,12 +225,12 @@ public class Player extends Entity{
         }
         else // spriteCounter >= FPS / 2
         {
+            timeSinceAttack = 0;
             spriteCounter = 0;
             spriteNum = 1;
             attacking = false;
             collisionOn = false;
             hit = false;
-            timeSinceAttack = 0;
         }
     }
 
