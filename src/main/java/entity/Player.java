@@ -246,11 +246,19 @@ public class Player extends Entity{
     @Override
     public void damage(int d)
     {
+        gP.playSE(2);
         setLife(getLife() - d);
 
         if (getLife() <= 0 )
         {
+            gP.playSE(3);
+            try{
+                Thread.sleep(800);
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
             gP.gameState = gameOver;
+            gP.stopMusic();
         }
     }
     @Override

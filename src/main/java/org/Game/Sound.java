@@ -5,16 +5,20 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class Sound {
     private Clip clip;
     private URL[] soundURL = new URL[30];
     private FloatControl volumeControl;
     public static boolean mute = false;
+    private ArrayList<Clip> activeClips = new ArrayList<>();
 
     public Sound(){
         soundURL[0] = getClass().getResource("/sound/game_music.wav");
         soundURL[1] = getClass().getResource("/sound/laser_sword.wav");
+        soundURL[2] = getClass().getResource("/sound/hurt.wav");
+        soundURL[3] = getClass().getResource("/sound/game_over.wav");
     }
 
     public void setFile(int i){
@@ -23,7 +27,7 @@ public class Sound {
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
             clip = AudioSystem.getClip();
             clip.open(ais);
-
+            activeClips.add(clip);
             if (clip.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
                 volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
                 applyMute();
@@ -43,6 +47,12 @@ public class Sound {
 
     public void stop(){
         clip.stop();
+    }
+
+    public void stopAllSounds(){
+        for(Clip c : activeClips){
+            c.stop();
+        }
     }
 
     public void setVolume(float volume) {

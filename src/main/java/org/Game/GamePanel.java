@@ -162,7 +162,7 @@ public class GamePanel extends JPanel implements Runnable, GameVariables{
     }
 
     public void stopMusic(){
-        sound.stop();
+        sound.stopAllSounds();
     }
 
     public void playSE(int i){
