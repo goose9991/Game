@@ -14,7 +14,7 @@ public class Player extends Entity{
     KeyHandler keyH;
 
     public int standCounter = 0;
-
+    boolean hit = false;
     boolean attacking = false;
     public int timeSinceAttack = 100;
     public int attackCooldown = 100; // Determines number of frames before a new attack can happen
@@ -38,6 +38,8 @@ public class Player extends Entity{
         worldY = tileSize * 21;
         speed = 4 * (60.0/FPS);
         direction = "down";
+        type = 0;
+        attackArea = new Rectangle(tileSize,tileSize);
 
         maxLife = 8;
         setLife(maxLife);
@@ -167,21 +169,65 @@ public class Player extends Entity{
     {
         spriteCounter++;
         moving = false;
-
-        if (spriteCounter < 25)
+        if (spriteCounter <= FPS / 4)
         {
             spriteNum = 1;
         }
-        if (spriteCounter < 75)
+        if (spriteCounter <= FPS / 2)
         {
             spriteNum = 2;
+            // Save the current worldX, worldY, solidArea
+            int currentWorldX = worldX;
+            int currentWorldY = worldY;
+            int solidAreaWidth = solidArea.width;
+            int solidAreaHeight = solidArea.height;
+
+            // Adjust player's worldX/Y for the attack area
+            switch(direction)
+            {
+                case "up":    worldY -= attackArea.height; break;
+                case "down":  worldY += attackArea.height; break;
+                case "left":  worldX -= attackArea.width;  break;
+                case "right": worldX += attackArea.width;  break;
+            }
+
+            // attackArea becomes solidArea
+            solidArea.width = attackArea.width;
+            solidArea.height = attackArea.height;
+
+            // Check Monster collision with attackArea, worldX, and worldY
+            int monsterIndex = gP.cChecker.checkEntity(this, gP.monster);
+            if (monsterIndex != 999 && !hit) {
+                gP.monster[monsterIndex].damage(1);
+                System.out.println("Hit!");
+                hit = true;
+                if(gP.monster[monsterIndex].getLife() <= 0)
+                {
+                    gP.monster[monsterIndex] = null;
+                }
+            }
+            else if (monsterIndex != 999)
+            {
+                System.out.println("this hit has already been counted");
+            }
+            else
+            {
+                System.out.println("Miss!");
+            }
+
+            // Restore Variables to original state
+            worldX = currentWorldX;
+            worldY = currentWorldY;
+            solidArea.width = solidAreaWidth;
+            solidArea.height = solidAreaHeight;
         }
-        else // spriteCounter >= 75
+        else // spriteCounter >= FPS / 2
         {
             spriteCounter = 0;
             spriteNum = 1;
             attacking = false;
             collisionOn = false;
+            hit = false;
             timeSinceAttack = 0;
         }
     }
@@ -197,10 +243,14 @@ public class Player extends Entity{
     @Override
     public void draw(Graphics2D g2){
         BufferedImage image = null;
+
+        int tempScreenX = screenX;
+        int tempScreenY = screenY;
         switch (direction){
             case "up":
                 if (attacking)
                 {
+                    tempScreenY = screenY - tileSize;
                     if(spriteNum == 1) {image = upAttack1;}
                     if(spriteNum == 2) {image = upAttack2;}
                 }
@@ -223,6 +273,7 @@ public class Player extends Entity{
             case "left":
                 if (attacking)
                 {
+                    tempScreenX = screenX - tileSize;
                     if(spriteNum == 1) {image = leftAttack1;}
                     if(spriteNum == 2) {image = leftAttack2;}
                 }
@@ -246,7 +297,7 @@ public class Player extends Entity{
         if(invincible){
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
         }
-        g2.drawImage(image, screenX, screenY, null);
+        g2.drawImage(image, tempScreenX, tempScreenY, null);
 
         //reset alpha
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));

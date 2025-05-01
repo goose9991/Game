@@ -26,6 +26,7 @@ public class Entity implements GameVariables{
     public int spriteNum = 1;
 
     public Rectangle solidArea = new Rectangle(0,0,48,48);
+    public Rectangle attackArea = new Rectangle(0,0,0,0);
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
 
