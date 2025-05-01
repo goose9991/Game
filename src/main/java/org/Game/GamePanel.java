@@ -52,10 +52,12 @@ public class GamePanel extends JPanel implements Runnable, GameVariables{
         playMusic(0);
         gameState = playState;
     }
+
     public void startGameThread(){
         gameThread = new Thread(this);
         gameThread.start();
     }
+
     @Override
     public void run() {
         // 1 second in nanoseconds divided by frames per second(frame intervals)
@@ -98,8 +100,14 @@ public class GamePanel extends JPanel implements Runnable, GameVariables{
 
         }
 
+        if(gameState == gameOver)
+        {
+
+        }
+
     }
 
+    @Override
     public void paintComponent(Graphics g){
         //pass Graphics class to JPanel
         super.paintComponent(g);

@@ -69,11 +69,10 @@ public class Player extends Entity{
         rightAttack2 = setup("/player/joselito_attack_right2",gP.tileSize*2, gP.tileSize);
     }
     @Override
-        public void update() {
-
-            if (attacking && (timeSinceAttack >= attackCooldown)) {attack();}
-            else {
-                timeSinceAttack = (timeSinceAttack >= attackCooldown) ? attackCooldown : timeSinceAttack+1;
+    public void update() {
+        if (attacking && (timeSinceAttack >= attackCooldown)) {attack();}
+        else {
+            timeSinceAttack = (timeSinceAttack >= attackCooldown) ? attackCooldown : timeSinceAttack+1;
             }
 
             if (!moving){
@@ -165,6 +164,7 @@ public class Player extends Entity{
                 }
             }
         }
+
     public void attack()
     {
         spriteCounter++;
@@ -238,6 +238,16 @@ public class Player extends Entity{
                 damage(1);
                 invincible = true;
             }
+        }
+    }
+    @Override
+    public void damage(int d)
+    {
+        setLife(getLife() - d);
+
+        if (getLife() <= 0 )
+        {
+            gP.gameState = gameOver;
         }
     }
     @Override

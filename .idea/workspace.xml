@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Merging Attack Animations (Space to Attack)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
+    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="MONSTERS ARE KILLABLE LETS GOOO">
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746080405066</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="MONSTERS ARE KILLABLE LETS GOOO">
+      <option name="closed" value="true" />
+      <created>1746082477009</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746082477009</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +166,7 @@
     <MESSAGE value="Committed to Fortnite" />
     <MESSAGE value="Committed Game States to Main! (Press Esc to Pause)" />
     <MESSAGE value="Merging Attack Animations (Space to Attack)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merging Attack Animations (Space to Attack)" />
+    <MESSAGE value="MONSTERS ARE KILLABLE LETS GOOO" />
+    <option name="LAST_COMMIT_MESSAGE" value="MONSTERS ARE KILLABLE LETS GOOO" />
   </component>
 </project>

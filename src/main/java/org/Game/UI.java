@@ -54,6 +54,19 @@ public class UI implements GameVariables{
         {
             drawPauseScreen();
         }
+        // Game Over Screen
+        if (gp.gameState == gameOver)
+        {
+            drawGameOverScreen();
+        }
+    }
+    public void drawGameOverScreen()
+    {
+        String text = "Game Over..";
+        int x = screenWidth/2 - tileSize*2;
+        int y = screenHeight/2;
+
+        g2.drawString(text,x,y);
     }
     public void drawPauseScreen()
     {

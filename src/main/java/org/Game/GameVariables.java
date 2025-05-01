@@ -26,4 +26,5 @@ public interface GameVariables {
     // Game States
     int playState = 1;
     int pauseState = 2;
+    int gameOver = 3;
 }

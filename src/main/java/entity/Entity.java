@@ -9,8 +9,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-//root character class
-public class Entity implements GameVariables{
+// Abstract/root class for monsters, npcs and player
+public abstract class Entity implements GameVariables{
     public GamePanel gP;
     public int worldX, worldY;
     public double speed;
