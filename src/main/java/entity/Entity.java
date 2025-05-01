@@ -30,15 +30,33 @@ public class Entity implements GameVariables{
     public boolean invincible = false;
     public int invincibleCounter;
     public BufferedImage image, image2, image3;
-    
-    // CHARACTER STATUS
-    public int maxLife;
-    public int life;
 
     public Entity(GamePanel gP)
     {
         this.gP = gP;
     }
+
+    // CHARACTER STATUS & Encapsulation
+    public int maxLife;
+    private int life;
+
+    // Getter and Setter methods for life, as well as increment and decrement methods (damage/heal)
+    public int getLife()
+    {
+        return life;
+    }
+    public void setLife(int l)
+    {
+        life = l;
+    }
+    public void damage(int d)
+    {
+        life -= d;
+    }
+    public void heal(int h){
+        life += h;
+    }
+
 
     public void update(){
 
@@ -51,7 +69,7 @@ public class Entity implements GameVariables{
 
         if(this.type == 2 && contactPlayer ){
             if(!gP.player.invincible){
-                gP.player.life--;
+                gP.player.damage(1);
                 gP.player.invincible = true;
             }
         }

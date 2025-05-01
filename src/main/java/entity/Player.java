@@ -35,7 +35,7 @@ public class Player extends Entity{
         direction = "down";
 
         maxLife = 8;
-        life = maxLife;
+        setLife(maxLife);
     }
 
     public void getPlayerImg(){
@@ -138,7 +138,7 @@ public class Player extends Entity{
     public void contactMonster(int i){
         if(i != 999){
             if(!invincible) {
-                life -= 1;
+                damage(1);
                 invincible = true;
             }
         }

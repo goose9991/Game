@@ -15,7 +15,7 @@ public class MON_Google extends Entity{
         type = 2; // sets type to monster
         speed = 1;
         maxLife = 4;
-        life = maxLife;
+        setLife(maxLife);
 
         solidArea = new Rectangle(1,1,46,46); // Put same values as player for hitbox Rectangle, may need changes
         solidAreaDefaultX = solidArea.x;

@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Implemented the GameVariables Interface">
+    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Did some cleaning up, removed unnecessary imports.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/monster/MON_Google.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/monster/MON_Google.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746073730870</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Did some cleaning up, removed unnecessary imports.">
+      <option name="closed" value="true" />
+      <created>1746074272082</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746074272082</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +166,7 @@
     <MESSAGE value="Committed to Fortnite" />
     <MESSAGE value="Committed Game States to Main! (Press Esc to Pause)" />
     <MESSAGE value="Implemented the GameVariables Interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented the GameVariables Interface" />
+    <MESSAGE value="Did some cleaning up, removed unnecessary imports." />
+    <option name="LAST_COMMIT_MESSAGE" value="Did some cleaning up, removed unnecessary imports." />
   </component>
 </project>

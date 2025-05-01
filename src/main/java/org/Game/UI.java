@@ -80,10 +80,10 @@ public class UI implements GameVariables{
         i = 0;
 
         //draw current life
-        while(i < gp.player.life){
+        while(i < gp.player.getLife()){
             g2.drawImage(heart_half, x, y, null);
             i++;
-            if(i< gp.player.life){
+            if(i< gp.player.getLife()){
                 g2.drawImage(heart_full, x, y, null);
             }
             i++;

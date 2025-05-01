@@ -19,6 +19,7 @@ public interface GameVariables {
     // Max Size
     int maxWorldCol = 50;
     int maxWorldRow = 50;
+
     // FPS
     int FPS = 120;
 
