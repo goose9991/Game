@@ -10,31 +10,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Committed Game States to Main! (Press Esc to Pause)">
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_down1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_left1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_right1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_up1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_up2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_down1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_left1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_right1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_up1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/joselito_up2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_down_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_down_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_left_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_left_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_right_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_right_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_up_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player/joselito_up_2.png" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_26_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_26_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_31_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_31_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_19_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_19_PM__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_45_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_45_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_9_32_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_9_32_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_4_22_2025_6_19_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_4_22_2025_6_19_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_2025_6_22_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_2025_6_22_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_9_34_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_9_34_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/AssetSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/CollisionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/EventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +50,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="XavierBranch" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,7 +87,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Interfaces",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/gusga/OneDrive/Documents/java_exp/Game/res/player",
     "project.structure.last.edited": "Artifacts",

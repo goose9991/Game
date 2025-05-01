@@ -11,23 +11,8 @@ import java.util.Comparator;
 
 //inherit JPanel, an empty container
 //interface Runnable inherited to use run method for thread timer
-public class GamePanel extends JPanel implements Runnable{
-
-    //bitmap default tile size
-    final int originalTileSize = 16;
-    final int scale = 3;
-
-    public final int tileSize = originalTileSize * scale;
-    public final int maxScreenCol = 16;
-    public final int maxScreenRow = 12;
-    public final int screenWidth = tileSize * maxScreenCol;
-    public final int screenHeight = tileSize * maxScreenRow;
-
-    public final int maxWorldCol = 50;
-    public final int maxWorldRow = 50;
-
-    //default fps size
-    public int FPS = 120;
+//interface GameVariables keeps track of all public final variables
+public class GamePanel extends JPanel implements Runnable, GameVariables{
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler(this);
@@ -47,8 +32,6 @@ public class GamePanel extends JPanel implements Runnable{
 
     // Game State
     public int gameState;
-    public final int playState = 1;
-    public final int pauseState = 2;
 
     public GamePanel()
     {

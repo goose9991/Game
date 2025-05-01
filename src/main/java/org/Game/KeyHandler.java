@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 
-public class KeyHandler implements KeyListener {
+public class KeyHandler implements KeyListener, GameVariables {
 
     GamePanel gp;
     public boolean upPressed, downPressed, leftPressed, rightPressed;
@@ -33,8 +33,8 @@ public class KeyHandler implements KeyListener {
             rightPressed = true;
         }
         if(code == KeyEvent.VK_ESCAPE){
-            gp.gameState =  (gp.gameState == gp.playState) ? gp.pauseState : gp.playState; // Switches between pause and play using Esc Key
-            if(gp.gameState == gp.pauseState ){
+            gp.gameState =  (gp.gameState == playState) ? pauseState : playState; // Switches between pause and play using Esc Key
+            if(gp.gameState == pauseState ){
                 gp.sound.stop();
             } else {
                 gp.sound.play();

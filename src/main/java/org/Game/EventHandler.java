@@ -2,7 +2,7 @@ package org.Game;
 
 import java.awt.*;
 
-public class EventHandler {
+public class EventHandler implements GameVariables {
 
     GamePanel gp;
     Rectangle eventRect;
@@ -26,8 +26,8 @@ public class EventHandler {
 
         gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
         gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
-        eventRect.x = eventCol*gp.tileSize + eventRect.x;
-        eventRect.y = eventRow*gp.tileSize + eventRect.y;
+        eventRect.x = eventCol*tileSize + eventRect.x;
+        eventRect.y = eventRow*tileSize + eventRect.y;
 
         if(gp.player.solidArea.intersects(eventRect)){
             if(gp.player.direction.contentEquals(regDirection) ||

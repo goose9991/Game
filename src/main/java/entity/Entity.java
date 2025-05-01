@@ -1,6 +1,7 @@
 package entity;
 
 import org.Game.GamePanel;
+import org.Game.GameVariables;
 import org.Game.UtilityTool;
 
 import javax.imageio.ImageIO;
@@ -9,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 //root character class
-public class Entity {
+public class Entity implements GameVariables{
     GamePanel gP;
     public int worldX, worldY;
     public double speed;
@@ -73,7 +74,7 @@ public class Entity {
         }
 
         spriteCounter++;
-        if(spriteCounter > gP.FPS/5){
+        if(spriteCounter > GameVariables.FPS/5){
             if(spriteNum == 1){
                 spriteNum = 2;
             } else if(spriteNum == 2){
@@ -88,7 +89,7 @@ public class Entity {
         BufferedImage image = null;
         try{
             image = ImageIO.read(getClass().getResourceAsStream(imageName +".png"));
-            image = uTool.scaleImage(image, gP.tileSize, gP.tileSize);
+            image = uTool.scaleImage(image, tileSize, tileSize);
 
         } catch(IOException e){
             e.printStackTrace();
@@ -102,10 +103,10 @@ public class Entity {
         int screenX = worldX - gP.player.worldX + gP.player.screenX;
         int screenY = worldY - gP.player.worldY + gP.player.screenY;
 
-        if(worldX + gP.tileSize > gP.player.worldX - gP.player.screenX &&
-                worldX - gP.tileSize < gP.player.worldX + gP.player.screenX &&
-                worldY + gP.tileSize > gP.player.worldY - gP.player.screenY &&
-                worldY - gP.tileSize < gP.player.worldY + gP.player.screenY){
+        if(     worldX + tileSize > gP.player.worldX - gP.player.screenX &&
+                worldX - tileSize < gP.player.worldX + gP.player.screenX &&
+                worldY + tileSize > gP.player.worldY - gP.player.screenY &&
+                worldY - tileSize < gP.player.worldY + gP.player.screenY){
 
             switch (direction){
                 case "up":
@@ -141,7 +142,7 @@ public class Entity {
                     }
                     break;
             }
-            g2.drawImage(image, screenX, screenY, gP.tileSize, gP.tileSize, null);
+            g2.drawImage(image, screenX, screenY, tileSize, tileSize, null);
 
         }
 

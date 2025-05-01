@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 
-public class UI {
+public class UI implements GameVariables{
 
     GamePanel gp;
     Graphics2D g2;
@@ -40,17 +40,17 @@ public class UI {
         g2.setColor(Color.white);
 
         // TIME
-        if (gp.gameState == gp.playState)
+        if (gp.gameState == playState)
         {
-            playtime += (double)1/gp.FPS; // calculates playtime based on fps
+            playtime += (double)1/FPS; // calculates playtime based on fps
         }
-        g2.drawString("Time: " + dFormat.format(playtime), gp.tileSize*11, 65);
+        g2.drawString("Time: " + dFormat.format(playtime), tileSize*11, 65);
 
         // PLAYER HEALTH
         drawPlayerLife();
 
         // PAUSE SCREEN
-        if (gp.gameState == gp.pauseState)
+        if (gp.gameState == pauseState)
         {
             drawPauseScreen();
         }
@@ -58,25 +58,25 @@ public class UI {
     public void drawPauseScreen()
     {
         String text = "PAUSED";
-        int x = gp.screenWidth/2 - gp.tileSize*2;
-        int y = gp.screenHeight/2;
+        int x = screenWidth/2 - tileSize*2;
+        int y = screenHeight/2;
 
         g2.drawString(text,x,y);
     }
     public void drawPlayerLife(){
-        int x = gp.tileSize/2;
-        int y = gp.tileSize/2;
+        int x = tileSize/2;
+        int y = tileSize/2;
         int i = 0;
 
         while(i < gp.player.maxLife/2){
             g2.drawImage(heart_blank, x, y, null);
             i++;
-            x += gp.tileSize;
+            x += tileSize;
         }
 
         //RESET
-        x = gp.tileSize/2;
-        y = gp.tileSize/2;
+        x = tileSize/2;
+        y = tileSize/2;
         i = 0;
 
         //draw current life
@@ -87,7 +87,7 @@ public class UI {
                 g2.drawImage(heart_full, x, y, null);
             }
             i++;
-            x += gp.tileSize;
+            x += tileSize;
         }
 
     }

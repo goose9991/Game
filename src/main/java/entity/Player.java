@@ -2,12 +2,10 @@ package entity;
 
 import org.Game.GamePanel;
 import org.Game.KeyHandler;
-import org.Game.UtilityTool;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+
 
 //character class
 public class Player extends Entity{
@@ -26,8 +24,8 @@ public class Player extends Entity{
         super(gP);
         this.keyH = keyH;
 
-        screenX = gP.screenWidth/2 - (gP.tileSize/2);
-        screenY = gP.screenHeight/2 - (gP.tileSize/2);
+        screenX = screenWidth/2 - (tileSize/2);
+        screenY = screenHeight/2 - (tileSize/2);
 
         solidArea = new Rectangle(1,1, 46, 46);
 
@@ -36,9 +34,9 @@ public class Player extends Entity{
     }
 
     public void setDefaultValues(){
-        worldX = gP.tileSize * 23;
-        worldY = gP.tileSize * 21;
-        speed = 4 * (60.0/gP.FPS);
+        worldX = tileSize * 23;
+        worldY = tileSize * 21;
+        speed = 4 * (60.0/FPS);
         direction = "down";
 
         maxLife = 8;
