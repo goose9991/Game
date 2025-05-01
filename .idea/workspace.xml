@@ -9,13 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Did some cleaning up, removed unnecessary imports.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
+    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Committed Game States to Main! (Press Esc to Pause)">
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_down2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_attack_up2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_down2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/joselito_up2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_down_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_down_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_left_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_left_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_right_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_right_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_up_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/joselito_up_2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/monster/MON_Google.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/monster/MON_Google.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,14 +45,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="XavierBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,7 +81,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Interfaces",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/gusga/OneDrive/Documents/java_exp/Game/res/player",
     "project.structure.last.edited": "Artifacts",
@@ -120,23 +138,7 @@
       <option name="project" value="LOCAL" />
       <updated>1745468328629</updated>
     </task>
-    <task id="LOCAL-00005" summary="Implemented the GameVariables Interface">
-      <option name="closed" value="true" />
-      <created>1746073730870</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1746073730870</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Did some cleaning up, removed unnecessary imports.">
-      <option name="closed" value="true" />
-      <created>1746074272082</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1746074272082</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,8 +167,6 @@
     <MESSAGE value="Added google monster" />
     <MESSAGE value="Committed to Fortnite" />
     <MESSAGE value="Committed Game States to Main! (Press Esc to Pause)" />
-    <MESSAGE value="Implemented the GameVariables Interface" />
-    <MESSAGE value="Did some cleaning up, removed unnecessary imports." />
-    <option name="LAST_COMMIT_MESSAGE" value="Did some cleaning up, removed unnecessary imports." />
+    <option name="LAST_COMMIT_MESSAGE" value="Committed Game States to Main! (Press Esc to Pause)" />
   </component>
 </project>

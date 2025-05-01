@@ -11,10 +11,12 @@ import java.io.IOException;
 
 //root character class
 public class Entity implements GameVariables{
-    GamePanel gP;
+    public GamePanel gP;
     public int worldX, worldY;
     public double speed;
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+    public BufferedImage upAttack1, upAttack2, downAttack1, downAttack2, leftAttack1, leftAttack2,
+    rightAttack1, rightAttack2;
     public String direction = "down";
     public int actionLockCounter = 0;
     public int type; // 0 = player, 1 = npc, 2 = monster
@@ -91,7 +93,7 @@ public class Entity implements GameVariables{
         }
 
         spriteCounter++;
-        if(spriteCounter > FPS/5){
+        if(spriteCounter > FPS / 3){
             if(spriteNum == 1){
                 spriteNum = 2;
             } else if(spriteNum == 2){
@@ -101,12 +103,12 @@ public class Entity implements GameVariables{
         }
     }
     public void setAction(){}
-    public BufferedImage setup(String imageName){
+    public BufferedImage setup(String imageName, int width, int height){
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
         try{
             image = ImageIO.read(getClass().getResourceAsStream(imageName +".png"));
-            image = uTool.scaleImage(image, tileSize, tileSize);
+            image = uTool.scaleImage(image, width, height);
 
         } catch(IOException e){
             e.printStackTrace();
