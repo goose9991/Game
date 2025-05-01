@@ -9,37 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Committed Game States to Main! (Press Esc to Pause)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_26_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_26_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_31_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_6_31_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_19_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_19_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_45_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2025_8_45_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_9_32_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_9_32_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_4_22_2025_6_19_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_4_22_2025_6_19_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_2025_6_22_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_2025_6_22_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_9_34_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_9_34_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Implemented the GameVariables Interface">
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/CollisionChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GameVariables.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745468328629</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented the GameVariables Interface">
+      <option name="closed" value="true" />
+      <created>1746073730870</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746073730870</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +154,7 @@
     <MESSAGE value="Added google monster" />
     <MESSAGE value="Committed to Fortnite" />
     <MESSAGE value="Committed Game States to Main! (Press Esc to Pause)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Committed Game States to Main! (Press Esc to Pause)" />
+    <MESSAGE value="Implemented the GameVariables Interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the GameVariables Interface" />
   </component>
 </project>

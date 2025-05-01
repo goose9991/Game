@@ -30,7 +30,6 @@ public class Entity implements GameVariables{
     public boolean invincible = false;
     public int invincibleCounter;
     public BufferedImage image, image2, image3;
-    public boolean collision = false;
     
     // CHARACTER STATUS
     public int maxLife;
@@ -74,7 +73,7 @@ public class Entity implements GameVariables{
         }
 
         spriteCounter++;
-        if(spriteCounter > GameVariables.FPS/5){
+        if(spriteCounter > FPS/5){
             if(spriteNum == 1){
                 spriteNum = 2;
             } else if(spriteNum == 2){
@@ -100,13 +99,13 @@ public class Entity implements GameVariables{
     public void draw(Graphics2D g2){
 
         BufferedImage image = null;
-        int screenX = worldX - gP.player.worldX + gP.player.screenX;
-        int screenY = worldY - gP.player.worldY + gP.player.screenY;
+        int screenX = worldX - gP.player.worldX + GameVariables.screenX;
+        int screenY = worldY - gP.player.worldY + GameVariables.screenY;
 
-        if(     worldX + tileSize > gP.player.worldX - gP.player.screenX &&
-                worldX - tileSize < gP.player.worldX + gP.player.screenX &&
-                worldY + tileSize > gP.player.worldY - gP.player.screenY &&
-                worldY - tileSize < gP.player.worldY + gP.player.screenY){
+        if(     worldX + tileSize > gP.player.worldX - GameVariables.screenX &&
+                worldX - tileSize < gP.player.worldX + GameVariables.screenX &&
+                worldY + tileSize > gP.player.worldY - GameVariables.screenY &&
+                worldY - tileSize < gP.player.worldY + GameVariables.screenY){
 
             switch (direction){
                 case "up":

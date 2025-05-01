@@ -12,10 +12,13 @@ public interface GameVariables {
     int screenWidth = tileSize * maxScreenCol;
     int screenHeight = tileSize * maxScreenRow;
 
+    // Previously in Player Class
+    int screenX = screenWidth/2 - (tileSize/2);
+    int screenY = screenHeight/2 - (tileSize/2);
+
     // Max Size
     int maxWorldCol = 50;
     int maxWorldRow = 50;
-
     // FPS
     int FPS = 120;
 

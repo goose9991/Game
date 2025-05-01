@@ -13,8 +13,6 @@ public class Player extends Entity{
 
     KeyHandler keyH;
 
-    public final int screenX;
-    public final int screenY;
     public int standCounter = 0;
     boolean moving = false;
     int pixelCounter = 0;
@@ -23,9 +21,6 @@ public class Player extends Entity{
     public Player(GamePanel gP, KeyHandler keyH){
         super(gP);
         this.keyH = keyH;
-
-        screenX = screenWidth/2 - (tileSize/2);
-        screenY = screenHeight/2 - (tileSize/2);
 
         solidArea = new Rectangle(1,1, 46, 46);
 
@@ -117,7 +112,7 @@ public class Player extends Entity{
 
             // Animate sprite
             spriteCounter++;
-            if (spriteCounter > gP.FPS / 5) {
+            if (spriteCounter > FPS / 5) {
                 spriteNum = (spriteNum == 1) ? 2 : 1;
                 spriteCounter = 0;
             }
