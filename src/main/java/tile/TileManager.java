@@ -26,11 +26,14 @@ public class TileManager implements GameVariables {
 
     public void getTileImage(){
         setup(0, "grass", false);
-        setup(1, "wall", true);
+        setup(1, "wall", false);
         setup(2, "water", true);
         setup(3, "sand", false);
         setup(4, "tree", true);
         setup(5, "sand", false);
+        setup(6, "wall01", false);
+        setup(7, "floor01", false);
+        setup(8, "table01", true);
     }
 
     public void setup(int index, String imageName, boolean collision){

@@ -9,25 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="added laser sound on monster contact and shortened attack cooldown">
-      <change afterPath="$PROJECT_DIR$/res/sound/game_over.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/hurt.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_11_15_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_11_15_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_11_15_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_23_2025_11_15_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_11_07_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_11_07_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_11_20_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2025_11_20_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]2/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]3/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_3.xml" beforeDir="false" />
+    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/Sound.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="XavierBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,9 +44,6 @@
     &quot;accountId&quot;: &quot;7fb1a6ed-fff9-4900-9d67-29cb62fc054a&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -77,9 +57,9 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "javi",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/gusga/OneDrive/Documents/java_exp/Game/res/sound",
+    "last_opened_file_path": "C:/Users/gusga/OneDrive/Documents/java_exp/Game/res/player",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -87,7 +67,6 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\gusga\OneDrive\Documents\java_exp\Game\res\sound" />
       <recent name="C:\Users\gusga\OneDrive\Documents\java_exp\Game\res\player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -135,31 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745468328629</updated>
     </task>
-    <task id="LOCAL-00005" summary="Merging Attack Animations (Space to Attack)">
+    <task id="LOCAL-00005" summary="map">
       <option name="closed" value="true" />
-      <created>1746080405066</created>
+      <created>1746043824314</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1746080405066</updated>
+      <updated>1746043824314</updated>
     </task>
-    <task id="LOCAL-00006" summary="MONSTERS ARE KILLABLE LETS GOOO">
-      <option name="closed" value="true" />
-      <created>1746082477009</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1746082477009</updated>
-    </task>
-    <task id="LOCAL-00007" summary="added laser sound on monster contact and shortened attack cooldown">
-      <option name="closed" value="true" />
-      <created>1746098856264</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1746098856264</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,9 +151,7 @@
     <MESSAGE value="Added google monster" />
     <MESSAGE value="Committed to Fortnite" />
     <MESSAGE value="Committed Game States to Main! (Press Esc to Pause)" />
-    <MESSAGE value="Merging Attack Animations (Space to Attack)" />
-    <MESSAGE value="MONSTERS ARE KILLABLE LETS GOOO" />
-    <MESSAGE value="added laser sound on monster contact and shortened attack cooldown" />
-    <option name="LAST_COMMIT_MESSAGE" value="added laser sound on monster contact and shortened attack cooldown" />
+    <MESSAGE value="map" />
+    <option name="LAST_COMMIT_MESSAGE" value="map" />
   </component>
 </project>
