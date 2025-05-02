@@ -9,7 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="map">
+    <list default="true" id="92f1cb07-467d-43cc-af28-325dd958c255" name="Changes" comment="Added Mute Notification for UI">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_24_2025_4_55_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_24_2025_4_55_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_24_2025_4_58_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_24_2025_4_58_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/Sound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Game/UI.java" afterDir="false" />
@@ -43,7 +47,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/goose9991/Game&quot;,
-    &quot;accountId&quot;: &quot;7d3598a4-3f84-40f1-bcb4-72b8abf445e2&quot;
+    &quot;accountId&quot;: &quot;7fb1a6ed-fff9-4900-9d67-29cb62fc054a&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -141,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746137365734</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added Mute Notification for UI">
+      <option name="closed" value="true" />
+      <created>1746137983175</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746137983175</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,6 +184,7 @@
     <MESSAGE value="Committed Game States to Main! (Press Esc to Pause)" />
     <MESSAGE value="map" />
     <MESSAGE value="updated with javi images and fixed muting on pause" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated with javi images and fixed muting on pause" />
+    <MESSAGE value="Added Mute Notification for UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Mute Notification for UI" />
   </component>
 </project>

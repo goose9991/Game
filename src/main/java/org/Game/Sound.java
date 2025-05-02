@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class Sound {
     private Clip clip;
     private URL[] soundURL = new URL[30];
-    private FloatControl volumeControl;
     public static boolean mute = false;
     private ArrayList<Clip> activeClips = new ArrayList<>();
 
@@ -28,10 +27,7 @@ public class Sound {
             clip = AudioSystem.getClip();
             clip.open(ais);
             activeClips.add(clip);
-            if (clip.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
-                volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-                applyMute();
-            }
+            applyMute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,6 +51,14 @@ public class Sound {
         }
     }
 
+    public void setVolume(FloatControl vc){
+        float min = vc.getMinimum();
+        float max = vc.getMaximum();
+        float volume = 0.8f; // 80% volume
+        float dB = min + (max - min) * volume;
+        vc.setValue(dB);
+    }
+
     public void applyMute() {
         for (Clip c : activeClips) {
             if (c.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
@@ -62,11 +66,7 @@ public class Sound {
                 if (mute) {
                     vc.setValue(vc.getMinimum());
                 } else {
-                    float min = vc.getMinimum();
-                    float max = vc.getMaximum();
-                    float volume = 0.8f; // 80% volume
-                    float dB = min + (max - min) * volume;
-                    vc.setValue(dB);
+                    setVolume(vc);
                 }
             }
         }
