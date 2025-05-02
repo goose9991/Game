@@ -26,16 +26,16 @@ public class MON_Google extends Entity{
 
     public void getImage()
     {
-        up1 = setup("/monster/Google",gP.tileSize, gP.tileSize); // sets the image to be Google at all times.
+        up1 = setup("/monster/Google",tileSize, tileSize); // sets the image to be Google at all times.
         up2 = up1;
 
-        down1 = setup("/monster/Google",gP.tileSize, gP.tileSize);
+        down1 = setup("/monster/Google",tileSize, tileSize);
         down2 = down1;
 
-        right1 = setup("/monster/Google",gP.tileSize, gP.tileSize);
+        right1 = setup("/monster/Google",tileSize, tileSize);
         right2 = right1;
 
-        left1 = setup("/monster/Google",gP.tileSize, gP.tileSize);
+        left1 = setup("/monster/Google",tileSize, tileSize);
         left2 = left1;
     }
 
