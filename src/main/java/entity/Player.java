@@ -16,6 +16,7 @@ public class Player extends Entity{
     public int standCounter = 0;
     boolean hit = false;
     boolean attacking = false;
+    boolean iframeOn = false;
     public int timeSinceAttack = 120;
     public int attackCooldown = 60; // Determines number of frames before a new attack can happen
     boolean moving = false;
@@ -169,13 +170,14 @@ public class Player extends Entity{
 
     public void attack()
     {
+
         spriteCounter++;
         moving = false;
-        if (spriteCounter <= FPS / 4)
+        if (spriteCounter <= FPS / 3)
         {
             spriteNum = 1;
         }
-        if (spriteCounter <= FPS / 2)
+        else if (spriteCounter <= FPS / 2)
         {
             spriteNum = 2;
             // Save the current worldX, worldY, solidArea
@@ -202,20 +204,23 @@ public class Player extends Entity{
             if (monsterIndex != 999 && !hit) {
                 gP.playSE(1);
                 gP.monster[monsterIndex].damage(1);
+
                 System.out.println("Hit!");
                 hit = true;
+
                 if(gP.monster[monsterIndex].getLife() <= 0)
                 {
                     gP.monster[monsterIndex] = null;
                 }
             }
-            else if (monsterIndex != 999)
-            {
-                System.out.println("this hit has already been counted");
-            }
-            else
-            {
-                System.out.println("Miss!");
+            else {
+                if (hit)
+                {
+                    iframeOn = true;
+                }
+                if (!hit) {
+                    System.out.println("Miss!");
+                }
             }
 
             // Restore Variables to original state
@@ -226,18 +231,23 @@ public class Player extends Entity{
         }
         else // spriteCounter >= FPS / 2
         {
-            timeSinceAttack = 0;
-            spriteCounter = 0;
-            spriteNum = 1;
-            attacking = false;
-            collisionOn = false;
-            hit = false;
+            resetAttack();
         }
     }
-
+    void resetAttack()
+    {
+        // Reset everything after animation
+        timeSinceAttack = 0;
+        spriteCounter = 0;
+        spriteNum = 1;
+        attacking = false;
+        collisionOn = false;
+        hit = false;
+        iframeOn = false;
+    }
     public void contactMonster(int i){
         if(i != 999){
-            if(!invincible) {
+            if(!invincible && !iframeOn) {
                 damage(1);
                 invincible = true;
             }
