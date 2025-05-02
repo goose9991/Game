@@ -18,7 +18,7 @@ public MON_X(GamePanel gp){
     solidAreaDefaultX = solidArea.x;
     solidAreaDefaultY = solidArea.y;
 
-   // getImage();
+    getImage();
 }
 
     public void getImage()
