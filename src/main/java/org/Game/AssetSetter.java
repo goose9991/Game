@@ -1,6 +1,7 @@
 package org.Game;
 
 import monster.MON_Google;
+import monster.MON_X;
 
 public class AssetSetter implements GameVariables{
 
@@ -19,5 +20,13 @@ public class AssetSetter implements GameVariables{
         gp.monster[1] = new MON_Google(gp);
         gp.monster[1].worldX = tileSize * 25;
         gp.monster[1].worldY = tileSize * 36;
+
+        gp.monster[2] = new MON_X(gp);
+        gp.monster[2].worldX = tileSize * 22;
+        gp.monster[2].worldY = tileSize * 34;
+
+        gp.monster[3] = new MON_X(gp);
+        gp.monster[3].worldX = tileSize * 23;
+        gp.monster[3].worldY = tileSize * 35;
     }
 }
