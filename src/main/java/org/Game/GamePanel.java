@@ -76,7 +76,7 @@ public class GamePanel extends JPanel implements Runnable, GameVariables{
             delta += (currentTime - lastTime) / drawInterval;
             lastTime = currentTime;
 
-            //as long as one there's one delta count:
+            //once delta accumulator hits 1 or higher, then draw screen
             if(delta >= 1){
                 update(); //logic updater for movement/collision
                 repaint(); //redraws screen

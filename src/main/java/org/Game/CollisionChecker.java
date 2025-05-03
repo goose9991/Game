@@ -63,7 +63,7 @@ public class CollisionChecker implements GameVariables{
         }
     }
 
-    //NPC or Monster collison
+    //NPC or Monster collision
     public int checkEntity(Entity entity, Entity[] target){
         int index = 999;
 
