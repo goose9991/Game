@@ -31,7 +31,7 @@ public class TileManager implements GameVariables {
         setup(3, "sand", false);
         setup(4, "tree", true);
         setup(5, "sand", false);
-        setup(6, "wall01", false);
+        setup(6, "wall01", true);
         setup(7, "floor01", false);
         setup(8, "table01", true);
     }
