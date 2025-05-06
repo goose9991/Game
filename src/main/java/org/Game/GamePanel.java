@@ -100,7 +100,12 @@ public class GamePanel extends JPanel implements Runnable, GameVariables{
 
         }
 
-        if(gameState == gameOver)
+        if(gameState == gameOverState)
+        {
+
+        }
+
+        if (gameState == victoryState)
         {
 
         }

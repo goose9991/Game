@@ -7,8 +7,8 @@ public interface GameVariables {
     int tileSize = originalTileSize * scale;
 
     // Screen Sizing
-    int maxScreenCol = 16;
-    int maxScreenRow = 12;
+    int maxScreenCol = 24;
+    int maxScreenRow = 16;
     int screenWidth = tileSize * maxScreenCol;
     int screenHeight = tileSize * maxScreenRow;
 
@@ -26,5 +26,8 @@ public interface GameVariables {
     // Game States
     int playState = 1;
     int pauseState = 2;
-    int gameOver = 3;
+    int gameOverState = 3;
+    int victoryState = 4;
+
+    int killsNeededToWin = 4;
 }

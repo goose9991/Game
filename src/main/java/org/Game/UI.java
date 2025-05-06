@@ -1,7 +1,9 @@
 package org.Game;
 
 import entity.Entity;
+import object.OBJ_Crown;
 import object.OBJ_Heart;
+import object.OBJ_Skull;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,7 +16,7 @@ public class UI implements GameVariables{
 
     Font arial_40;
 
-    BufferedImage heart_full, heart_half, heart_blank;
+    BufferedImage heart_full, heart_half, heart_blank, skullImg, crownImg;
 
     double playtime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
@@ -24,12 +26,19 @@ public class UI implements GameVariables{
         this.gp = gp;
         arial_40 = new Font("Arial", Font.PLAIN, 40);
 
-        //create HUD Object
+        //create HUD Objects, also Polymorphic
         Entity heart = new OBJ_Heart(gp);
+        Entity skull = new OBJ_Skull(gp);
+        Entity crown = new OBJ_Crown(gp);
 
+        // UI Images
+        crownImg = crown.image;
+        skullImg = skull.image;
         heart_full = heart.image;
         heart_half = heart.image2;
         heart_blank = heart.image3;
+
+
 
     }
 
@@ -39,31 +48,43 @@ public class UI implements GameVariables{
         g2.setFont(arial_40);
         g2.setColor(Color.white);
 
-        // TIME
-        if (gp.gameState == playState)
+        drawPlayState(); // Draws the time, and calls the PLAYER HEALTH, PLAYER KILL COUNT, and Mute drawings
+
+        // Draws Special Screens based on gameState
+        switch(gp.gameState)
         {
-            playtime += (double)1/FPS; // calculates playtime based on fps
+            case pauseState: drawPauseScreen(); break;
+            case gameOverState: drawGameOverScreen(); break;
+            case victoryState: drawVictoryScreen(); break;
+            default: break;
         }
-        g2.drawString("Time: " + dFormat.format(playtime), tileSize*11, 65);
+    }
+
+    public void drawPlayState()
+    {
+        // TIME
+        if (gp.gameState == playState) {playtime += (double)1/FPS;} // calculates playtime based on fps
+        g2.drawString("Time: " + dFormat.format(playtime), screenWidth - tileSize*5, 68); // Creates Timer, Top Right
 
         // PLAYER HEALTH
         drawPlayerLife();
 
-        if(Sound.mute && gp.gameState == 1){
+        // Player Kill Count
+        drawKillCount();
+
+        if(Sound.mute && gp.gameState == playState){
             drawMuteSymbol();
         }
-        // PAUSE SCREEN
-        if (gp.gameState == pauseState)
-        {
-            drawPauseScreen();
-        }
-        // Game Over Screen
-        if (gp.gameState == gameOver)
-        {
-            drawGameOverScreen();
-        }
-    }
 
+    }
+    public void drawKillCount()
+    {
+        int x = tileSize/2;
+        int y = 2*tileSize;
+
+        g2.drawImage(skullImg, x,y,null);
+        g2.drawString(" X " + gp.player.killCount, x*3, 135);
+    }
     public void drawMuteSymbol(){
         String text = "MUTE";
         int x = screenWidth/2 + tileSize*5;
@@ -86,6 +107,16 @@ public class UI implements GameVariables{
         int x = screenWidth/2 - tileSize*2;
         int y = screenHeight/2;
 
+        g2.drawString(text,x,y);
+    }
+    public void drawVictoryScreen()
+    {
+        String text = "VICTORY!!";
+        int x = screenWidth/2 - tileSize*2;
+        int y = screenHeight/2;
+
+
+        g2.drawImage(crownImg,700,350,null);
         g2.drawString(text,x,y);
     }
     public void drawPlayerLife(){

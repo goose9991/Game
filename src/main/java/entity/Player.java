@@ -19,6 +19,7 @@ public class Player extends Entity{
     boolean iframeOn = false;
     public int timeSinceAttack = 120;
     public int attackCooldown = 60; // Determines number of frames before a new attack can happen
+    public int killCount = 0;
     boolean moving = false;
     int pixelCounter = 0;
 
@@ -210,7 +211,13 @@ public class Player extends Entity{
 
                 if(gP.monster[monsterIndex].getLife() <= 0)
                 {
+                    killCount++;
                     gP.monster[monsterIndex] = null;
+                }
+
+                if (killCount >= killsNeededToWin)
+                {
+                    gP.gameState = victoryState;
                 }
             }
             else {
@@ -267,7 +274,7 @@ public class Player extends Entity{
             } catch(InterruptedException e){
                 e.printStackTrace();
             }
-            gP.gameState = gameOver;
+            gP.gameState = gameOverState;
             gP.stopMusic();
         }
     }
