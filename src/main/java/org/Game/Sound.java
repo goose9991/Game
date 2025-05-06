@@ -61,14 +61,12 @@ public class Sound {
 
     public void applyMute() {
         for (Clip c : activeClips) {
-            if (c.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
                 FloatControl vc = (FloatControl) c.getControl(FloatControl.Type.MASTER_GAIN);
                 if (mute) {
                     vc.setValue(vc.getMinimum());
                 } else {
                     setVolume(vc);
                 }
-            }
         }
     }
 
