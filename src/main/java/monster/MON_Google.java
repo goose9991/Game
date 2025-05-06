@@ -9,7 +9,7 @@ public class MON_Google extends Monster {
         super(gp, "Google");
 
         speed = 1;
-        maxLife = 4;
+        maxLife = 3;
         setLife(maxLife);
     }
 }

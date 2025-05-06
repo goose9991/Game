@@ -8,7 +8,7 @@ public class MON_X extends Monster  {
         super(gp, "X");
 
         speed = 1;
-        maxLife = 4;
+        maxLife = 2;
         setLife(maxLife);
     }
 }
