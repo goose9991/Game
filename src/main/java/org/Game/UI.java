@@ -113,10 +113,10 @@ public class UI implements GameVariables{
     {
         String text = "VICTORY!!";
         int x = screenWidth/2 - tileSize*2;
-        int y = screenHeight/2;
+        int y = screenHeight/2 - tileSize;
 
 
-        g2.drawImage(crownImg,700,350,null);
+        g2.drawImage(crownImg,700,302,null);
         g2.drawString(text,x,y);
     }
     public void drawPlayerLife(){

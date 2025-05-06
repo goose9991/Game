@@ -107,7 +107,7 @@ public class GamePanel extends JPanel implements Runnable, GameVariables{
 
         if (gameState == victoryState)
         {
-
+            player.update();
         }
 
     }
