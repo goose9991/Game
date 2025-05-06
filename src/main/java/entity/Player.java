@@ -217,7 +217,14 @@ public class Player extends Entity{
 
                 if (killCount >= killsNeededToWin)
                 {
+                    gP.playSE(4);
+                    try{
+                        Thread.sleep(1200);
+                    } catch(InterruptedException e){
+                        e.printStackTrace();
+                    }
                     gP.gameState = victoryState;
+                    gP.stopMusic();
                 }
             }
             else {
