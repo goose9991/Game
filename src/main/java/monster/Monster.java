@@ -10,7 +10,7 @@ abstract class Monster extends Entity  {
         super(gp);
 
         name = monName;
-        type = 2;
+        type = 2; // Type = Monster
 
         solidArea = new Rectangle(1,1,46,46); // Put same values as player for hitbox Rectangle, may need changes
         solidAreaDefaultX = solidArea.x;

@@ -78,18 +78,10 @@ public class CollisionChecker implements GameVariables{
                 target[i].solidArea.y = target[i].worldY + target[i].solidArea.y;
 
                 switch(entity.direction){
-                    case "up":
-                        entity.solidArea.y -= (int)entity.speed;
-                        break;
-                    case "down":
-                        entity.solidArea.y += (int)entity.speed;
-                        break;
-                    case "left":
-                        entity.solidArea.x -= (int)entity.speed;
-                        break;
-                    case "right":
-                        entity.solidArea.x += (int)entity.speed;
-                        break;
+                    case "up":    {entity.solidArea.y -= (int)entity.speed; break;}
+                    case "down":  {entity.solidArea.y += (int)entity.speed; break;}
+                    case "left":  {entity.solidArea.x -= (int)entity.speed; break;}
+                    case "right": {entity.solidArea.x += (int)entity.speed; break;}
                 }
 
                 if(entity.solidArea.intersects(target[i].solidArea)){
@@ -122,18 +114,10 @@ public class CollisionChecker implements GameVariables{
             gP.player.solidArea.y = gP.player.worldY + gP.player.solidArea.y;
 
             switch(entity.direction){
-                case "up":
-                    entity.solidArea.y -= (int)entity.speed;
-                    break;
-                case "down":
-                    entity.solidArea.y += (int)entity.speed;
-                    break;
-                case "left":
-                    entity.solidArea.x -= (int) entity.speed;
-                    break;
-                case "right":
-                    entity.solidArea.x += (int)entity.speed;
-                    break;
+                case "up":    {entity.solidArea.y -= (int)entity.speed; break;}
+                case "down":  {entity.solidArea.y += (int)entity.speed; break;}
+                case "left":  {entity.solidArea.x -= (int)entity.speed; break;}
+                case "right": {entity.solidArea.x += (int)entity.speed; break;}
             }
         if(entity.solidArea.intersects(gP.player.solidArea)){
             //entity.collisionOn = true;
